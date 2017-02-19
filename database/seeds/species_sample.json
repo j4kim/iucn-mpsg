@@ -8,12 +8,12 @@
     "Status": "CRITICALLY ENDANGERED (CR)",
     "Images": [
       {
-        "url":"IMGP1022.JPG",
+        "url":"Abies_1.jpg",
         "title":"Abies Nebrodensis",
         "legend":"2010"
       },
       {
-        "url":"IMGP1015.JPG"
+        "url":"Abies_2.jpg"
       }
     ],
     "Maps": [
@@ -32,7 +32,13 @@
     "Status": "CRITICALLY ENDANGERED (CR)",
     "Images": [
       {
-        "url":"Aethionema retsina_1.JPG"
+        "url":"Aethionema_1.jpg"
+      },
+      {
+        "url":"Aethionema_2.jpg"
+      },
+      {
+        "url":"Aethionema_3.jpg"
       }
     ],
     "Maps": [
