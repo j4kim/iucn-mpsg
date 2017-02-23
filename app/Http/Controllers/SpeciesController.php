@@ -46,7 +46,10 @@ class SpeciesController extends Controller
      */
     public function show($id)
     {
-        return view('species.show', ['species' => Species::find($id)]);
+        $species = Species::find($id);
+        $summary = $species->data["Summary"];
+        $summary["Yolo"] = "Coucou";
+        return view('species.show', compact('species', 'summary'));
     }
 
     /**

@@ -1,4 +1,4 @@
-total : 5h00
+total : 11h30
 
 # 23.02.17
 
@@ -15,6 +15,10 @@ total : 5h00
 * Création variante du logo IUCN
 
 1h30
+
+* Image header
+
+2h
 
 # 20.02.17
 

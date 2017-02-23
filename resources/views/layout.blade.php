@@ -27,7 +27,12 @@
             <h1 class="title">@yield('title')</h1>
         </div>
     </header>
-    <div class="container">
+    <div class="img-header">
+        <div class="container">
+            @yield('header')
+        </div>
+    </div>
+    <div class="container content">
         @yield('content')
     </div>
     @yield('scripts')

@@ -6,8 +6,7 @@ LAYOUT
 
 header{
     padding: 15px;
-    background-color: #fafafa;
-    margin-bottom: 20px;
+    /*background-color: #fafafa;*/
 }
 
 .title-logo h1{
@@ -17,6 +16,27 @@ header{
 .title{
     float: right;
 }
+
+.img-header{
+    background-color: #2b2b2b;
+}
+
+.img-header > .container{
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.img-header > .container > img{
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    width: 100%;
+}
+
 
 /*
 GENERAL
@@ -30,8 +50,8 @@ a, a:hover{
 SPECIES
 */
 
+
 aside{
-    margin-top:20px;
     background-color: #fafafa;
 }
 
