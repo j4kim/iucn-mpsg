@@ -57,7 +57,7 @@ class SpeciesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('species.edit', ['species' => Species::find($id)]);
     }
 
     /**
@@ -69,7 +69,24 @@ class SpeciesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $species = Species::find($id);
+
+        $name = $request->name;
+        $data = $species->data;
+
+        $keys = ['Latin name', 'Synonyms', 'Common name', 'Family', 'Status'];
+        foreach($keys as $key){
+            $value = $request[str_replace(' ', '_', $key)];
+            if (!empty($value))
+                $data["Summary"][$key] = $value;
+        }
+
+        $data["Text"] = $request->Text;
+        $data["Additional References"] = $request->Additional_References;
+
+        $species->update(compact('name', 'data'));
+
+        return redirect()->route('species.show', compact('species'));
     }
 
     /**
