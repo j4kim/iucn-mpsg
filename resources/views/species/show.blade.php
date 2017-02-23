@@ -3,30 +3,44 @@
 @section('title', $species->name)
 
 @section('content')
+    <a href="{{ route('species.edit', $species->id) }}">edit</a>
     <h1>{{$species->name}}</h1>
     @foreach ($species->data["Images"] as $img)
-        <img
+        <img width="500px"
                 src="{{ asset('images/' . $img["url"]) }}"
                 alt="{{ $img["title"] or $species->name }}"
                 title="{{ $img["title"] or $species->name }}">
     @endforeach
-    <table>
-        <tbody>
-        @foreach($species->islands as $island)
-            {{ $island->name }} ({{ $island->country }})
-            @if (! $loop->last)
-                -
-            @endif
-        @endforeach
-        </tbody>
-            @foreach($species->data["Summary"] as $key => $value)
+    <div>
+        <table>
+            <tbody>
                 <tr>
-                    <th>{{ $key }}</th>
-                    <td>{{ $value }}</td>
+                    <th>Island (Country)</th>
+                    <td>
+                        @foreach($species->islands as $island)
+                            {{ $island->name }} ({{ $island->country }})
+                            @if (! $loop->last)
+                                -
+                            @endif
+                        @endforeach
+                    </td>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+                @foreach($species->data["Summary"] as $key => $value)
+                    <tr>
+                        <th>{{ $key }}</th>
+                        <td>{{ $value }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        @foreach ($species->data["Maps"] as $img)
+            <img width="500px"
+                 src="{{ asset('images/' . $img["url"]) }}"
+                 alt="{{ $img["title"] or "Location of " . $species->name }}"
+                 title="{{ $img["title"] or "Location of " . $species->name }}">
+        @endforeach
+    </div>
     {!! $species->data["Text"] !!}
     <h3>Additionnal references</h3>
     {!! $species->data["Additional References"] !!}
