@@ -1,5 +1,14 @@
 total : 5h00
 
+# 23.02.17
+
+* Maquettes au crayon
+* Vue species.edit
+* Intégration de Quill pour modifier le texte d'une éspèce
+* Contrôleur species.udpate
+
+3h
+
 # 20.02.17
 
 * Modifications vue species.index
@@ -8,9 +17,9 @@ total : 5h00
 
 # 19.02.17
 
-* création des échantillons de données à partir des 2 premières fiches docx
-* migration et seeder d'île et d'éspèce
-* contrôleurs "ressources" pour Island et Species
-* vues species.index et species.show
+* Création des échantillons de données à partir des 2 premières fiches docx
+* Migration et seeder d'île et d'éspèce
+* Contrôleurs "ressources" pour Island et Species
+* Vues species.index et species.show
 
 4h30
