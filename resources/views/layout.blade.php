@@ -18,14 +18,17 @@
 
 </head>
 <body>
-    <div class="container">
-        <a href="{{ url('/') }}" class="title-logo">
-            <img src="{{ asset('images/logo-iucn.png') }}">
-            <h1>{{ config('app.name') }}</h1>
-        </a>
-        <div class="content">
-            @yield('content')
+    <header>
+        <div class="container">
+            <a href="{{ url('/') }}" class="title-logo">
+                <img src="{{ asset('images/logo-iucn.png') }}">
+                <h1>{{ config('app.name') }}</h1>
+            </a>
+            <h1 class="title">@yield('title')</h1>
         </div>
+    </header>
+    <div class="container">
+        @yield('content')
     </div>
     @yield('scripts')
 </body>

@@ -1,11 +1,45 @@
 /*
-
 LAYOUT
-
 */
 
-/* Title */
+/* Header */
+
+header{
+    padding: 15px;
+    background-color: #fafafa;
+    margin-bottom: 20px;
+}
 
 .title-logo h1{
     display: none;
+}
+
+.title{
+    float: right;
+}
+
+/*
+GENERAL
+*/
+
+a, a:hover{
+    color:#b91818;
+}
+
+/*
+SPECIES
+*/
+
+aside{
+    margin-top:20px;
+    background-color: #fafafa;
+}
+
+.species-map{
+    width: 100%;
+}
+
+.references{
+    font-size: small;
+    word-wrap: break-word;
 }

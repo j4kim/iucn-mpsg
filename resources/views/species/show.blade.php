@@ -3,18 +3,17 @@
 @section('title', $species->name)
 
 @section('content')
-    <h1>{{$species->name}}</h1>
-    <a href="{{ route('species.edit', $species->id) }}">edit</a>
+    <div class="row">
+        <div class="col-sm-12"></div>
 
-    @foreach ($species->data["Images"] as $img)
-        <img width="500px"
-                src="{{ asset('images/' . $img["url"]) }}"
-                alt="{{ $img["title"] or $species->name }}"
-                title="{{ $img["title"] or $species->name }}">
-    @endforeach
-    <div>
-        <table>
-            <tbody>
+        <main class="col-sm-8">
+            {!! $species->data["Text"] !!}
+        </main>
+
+        <aside class="col-sm-4">
+
+            <table class="table">
+                <tbody>
                 <tr>
                     <th>Island (Country)</th>
                     <td>
@@ -32,17 +31,60 @@
                         <td>{{ $value }}</td>
                     </tr>
                 @endforeach
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
-        @foreach ($species->data["Maps"] as $img)
-            <img width="500px"
-                 src="{{ asset('images/' . $img["url"]) }}"
-                 alt="{{ $img["title"] or "Location of " . $species->name }}"
-                 title="{{ $img["title"] or "Location of " . $species->name }}">
-        @endforeach
+            @foreach ($species->data["Maps"] as $img)
+                <img class="species-map"
+                     src="{{ asset('images/' . $img["url"]) }}"
+                     alt="{{ $img["title"] or "Location of " . $species->name }}"
+                     title="{{ $img["title"] or "Location of " . $species->name }}">
+            @endforeach
+
+            <h2>Gallery</h2>
+            @foreach ($species->data["Images"] as $img)
+                <div class="col-sm-6">
+                    <div class="thumbnail species-image">
+                        <a href="{{ asset('images/' . $img["url"]) }}">
+                            <img src="{{ asset('images/' . $img["url"]) }}" alt="{{ $img["title"] or $species->name }}">
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+
+
+            <h2 style="clear: both">Additionnal references</h2>
+            <div class="references">
+                {!! $species->data["Additional References"] !!}
+            </div>
+
+        </aside>
     </div>
-    {!! $species->data["Text"] !!}
-    <h3>Additionnal references</h3>
-    {!! $species->data["Additional References"] !!}
+    {{--@foreach ($species->data["Images"] as $img)--}}
+        {{--<img width="500px"--}}
+                {{--src="{{ asset('images/' . $img["url"]) }}"--}}
+                {{--alt="{{ $img["title"] or $species->name }}"--}}
+                {{--title="{{ $img["title"] or $species->name }}">--}}
+    {{--@endforeach--}}
+
+
+
+
+
+    {{--<h2>Gallery</h2>--}}
+    {{--<div class="row">--}}
+        {{--@foreach ($species->data["Images"] as $img)--}}
+            {{--<div class="col-sm-3">--}}
+                {{--<div class="thumbnail">--}}
+                    {{--<a href="{{ asset('images/' . $img["url"]) }}">--}}
+                        {{--<img src="{{ asset('images/' . $img["url"]) }}" alt="{{ $img["title"] or $species->name }}">--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--@endforeach--}}
+    {{--</div>--}}
+
+    <p>
+        <a href="{{ route('species.edit', $species->id) }}">edit</a>
+    </p>
 @endsection
