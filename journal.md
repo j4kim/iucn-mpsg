@@ -9,6 +9,13 @@ total : 5h00
 
 3h
 
+* Script déplacés dans public/js/specie.edit.js
+* Intégration de bootstrap
+* Création feuille de style public/css/main.css
+* Création variante du logo IUCN
+
+1h30
+
 # 20.02.17
 
 * Modifications vue species.index

@@ -3,8 +3,9 @@
 @section('title', $species->name)
 
 @section('content')
-    <a href="{{ route('species.edit', $species->id) }}">edit</a>
     <h1>{{$species->name}}</h1>
+    <a href="{{ route('species.edit', $species->id) }}">edit</a>
+
     @foreach ($species->data["Images"] as $img)
         <img width="500px"
                 src="{{ asset('images/' . $img["url"]) }}"

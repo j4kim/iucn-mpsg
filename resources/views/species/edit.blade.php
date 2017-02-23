@@ -37,22 +37,12 @@
 
     </form>
 
+@endsection
+
+@section('scripts')
     <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.2.0/quill.min.js"></script>
-
-    <!-- Initialize Quill editor -->
-    <script>
-        var quillText = new Quill('#quillText',{theme: 'snow'});
-        var quillAddRef = new Quill('#quillAddRef',{theme: 'snow'});
-
-        var form = document.querySelector('form');
-        form.onsubmit = function() {
-            var Text = document.querySelector('input[name=Text]');
-            Text.value =  document.querySelector('#quillText').children[0].innerHTML;
-
-            var Additional_References = document.querySelector('input[name=Additional_References]');
-            Additional_References.value =  document.querySelector('#quillAddRef').children[0].innerHTML;
-        }
-    </script>
-
+    <!-- Initialize Quill editors -->
+    <script src="{{ asset('js/species.edit.js') }}"></script>
 @endsection
+
