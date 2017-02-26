@@ -1,4 +1,15 @@
-total : 11h30
+total : 16h30
+
+# 26.02.17
+
+17h
+* CSS propres pour tous les écrans
+* Reformattage du json species
+* Affichage correct du nom latin et son auteur
+* Avancement dans la page d'édition d'une espèce
+
+3h30
+
 
 # 23.02.17
 
@@ -16,9 +27,11 @@ total : 11h30
 
 1h30
 
+* Affinage styles
 * Image header
+* Aléatoire
 
-2h
+3h30
 
 # 20.02.17
 

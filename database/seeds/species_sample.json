@@ -1,8 +1,8 @@
 {
   "Abies nebrodensis": {
     "Summary":{
-      "Latin name": "Abies nebrodensis (Lojac.) Mattei",
-      "Synonyms": "Abies pectinata",
+      "Latin name": {"Name": "Abies nebrodensis", "Author": "(Lojac.) Mattei"},
+      "Synonym": {"Name": "Abies pectinata", "Author": ""},
       "Common name": "Abete delle Madonie (Italian); Sicilian fir (English)",
       "Family": "Pinaceae (pine family)",
       "Status": "CRITICALLY ENDANGERED (CR)"
@@ -28,7 +28,7 @@
   },
   "Aethionema retsina": {
     "Summary":{
-      "Latin name": "Aethionema retsina Phitos & Snogerup",
+      "Latin name": {"Name": "Aethionema retsina", "Author": "Phitos & Snogerup"},
       "Common name": "Stonecress of Skiros Island (English)",
       "Family": "Brassicaceae (mustard family)",
       "Status": "CRITICALLY ENDANGERED (CR)"

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Island;
 use App\Species;
 use Illuminate\Http\Request;
 
@@ -47,9 +48,18 @@ class SpeciesController extends Controller
     public function show($id)
     {
         $species = Species::find($id);
+
         $summary = $species->data["Summary"];
-        $summary["Yolo"] = "Coucou";
-        return view('species.show', compact('species', 'summary'));
+        // plural if there are several common names, ie if there is a semicolon
+        if(strpos($summary["Common name"],';')){
+            $summary["Common names"] = $summary["Common name"];
+            unset($summary["Common name"]);
+        }
+
+        $imgs = $species->data["Images"];
+        $header_img = $imgs[array_rand($imgs)];
+        $header_img_url = asset('images/' . $header_img['url']);
+        return view('species.show', compact('species', 'summary', 'header_img_url'));
     }
 
     /**
@@ -60,7 +70,7 @@ class SpeciesController extends Controller
      */
     public function edit($id)
     {
-        return view('species.edit', ['species' => Species::find($id)]);
+        return view('species.edit', ['species' => Species::find($id), 'islands' => Island::all()]);
     }
 
     /**
@@ -74,10 +84,15 @@ class SpeciesController extends Controller
     {
         $species = Species::find($id);
 
-        $name = $request->name;
+        $name = $request->Latin_name;
         $data = $species->data;
 
-        $keys = ['Latin name', 'Synonyms', 'Common name', 'Family', 'Status'];
+        $data['Summary']['Latin name'] = ["Name" => $name, "Author" => $request->Latin_name_Author];
+
+        if(!empty($request->Synonym))
+            $data['Summary']['Synonym'] = ["Name" => $request->Synonym, "Author" => $request->Synonym_Author];
+
+        $keys = ['Common name', 'Family', 'Status'];
         foreach($keys as $key){
             $value = $request[str_replace(' ', '_', $key)];
             if (!empty($value))

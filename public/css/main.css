@@ -47,12 +47,18 @@ a, a:hover{
 }
 
 /*
-SPECIES
+SPECIES SHOW
 */
 
 
 aside{
     background-color: #fafafa;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+aside > h3:first-child{
+    margin-top: 0;
 }
 
 .species-map{
@@ -62,4 +68,56 @@ aside{
 .references{
     font-size: small;
     word-wrap: break-word;
+    background-color: #fafafa;
+}
+
+.image-gallery{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+/*
+MEDIA QUERIES
+*/
+
+.image-gallery .species-image{
+    width: 48%;
+    float: left;
+}
+
+.ref-mobile{
+    display: none;
+}
+
+@media (max-width: 992px){
+
+    .ref-mobile{
+        display: block;
+    }
+
+    .ref-desktop{
+        display: none;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 992px){
+
+    .species-map{
+        width: 60%;
+    }
+
+    .image-gallery .species-image{
+        width: 30%;
+        float: left;
+    }
+    }
+
+/*
+SPECIES EDIT
+*/
+
+.editor{
+    max-height:50%;
 }

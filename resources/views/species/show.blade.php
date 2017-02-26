@@ -3,49 +3,43 @@
 @section('title', $species->name)
 
 @section('header')
-    <img src="{{ asset('images/' . $species->data["Images"][0]['url'] ) }}">
+    <div class="container">
+        <img src="{{ $header_img_url }}">
+    </div>
 @endsection
 
 @section('content')
     <div class="row">
-        <main class="col-sm-8">
-            {!! $species->data["Text"] !!}
-        </main>
-
-        <aside class="col-sm-4">
-
-
-            {{--@foreach($summary as $key => $value)--}}
-                {{--<p><strong>{{ $key }}</strong><br>--}}
-                {{--{{ $value }}</p>--}}
-
-            {{--@endforeach--}}
+        <aside class="col-md-5 col-md-push-7 col-lg-4 col-lg-push-8">
 
             <h3>Summary</h3>
             <table class="table">
                 <tbody>
-                <tr>
-                    <th>Island (Country)</th>
-                    <td>
-                        @foreach($species->islands as $island)
-                            {{ $island->name }} ({{ $island->country }})
-                            @if (! $loop->last)
-                                -
-                            @endif
-                        @endforeach
-                    </td>
-                </tr>
                 @foreach($summary as $key => $value)
                     <tr>
                         <th>{{ $key }}</th>
-                        <td>{{ $value }}</td>
+                        @if(is_string($value))
+                            <td><strong>{{ $value }}</strong></td>
+                        @elseif(is_array($value))
+                            <td><strong><em>{{ $value["Name"] }}</em></strong> {{ $value["Author"] }}</td>
+                        @endif
                     </tr>
                 @endforeach
+                    {{--<tr>--}}
+                        {{--<th>Latin name</th>--}}
+                        {{--<td><strong><em>{{ $summary['Latin name']['Name'] }}</em></strong> {{ $summary['Latin name']['Author'] }}</td>--}}
+                    {{--</tr>--}}
+                    {{--@if(isset($summary['Synonym']))--}}
+                    {{--<tr>--}}
+                        {{--<th>Synonym</th>--}}
+                        {{--<td><strong><em>{{ $summary['Synonym']['Name'] }}</em></strong> {{ $summary['Synonym']['Author'] }}</td>--}}
+                    {{--</tr>--}}
+                    {{--@endif--}}
                 </tbody>
             </table>
 
             @foreach ($species->data["Maps"] as $img)
-                <div class="thumbnail species-image">
+                <div class="thumbnail">
                     <a href="{{ asset('images/' . $img["url"]) }}">
                         <img class="species-map"
                              src="{{ asset('images/' . $img["url"]) }}"
@@ -56,23 +50,34 @@
             @endforeach
 
             <h3>Gallery</h3>
-            @foreach ($species->data["Images"] as $img)
-                <div class="col-sm-6">
-                    <div class="thumbnail species-image">
-                        <a href="{{ asset('images/' . $img["url"]) }}">
-                            <img src="{{ asset('images/' . $img["url"]) }}" alt="{{ $img["title"] or $species->name }}">
-                        </a>
-                    </div>
-                </div>
-            @endforeach
+            <div class="image-gallery">
+                @foreach ($species->data["Images"] as $img)
+                        <div class="thumbnail species-image">
+                            <a href="{{ asset('images/' . $img["url"]) }}">
+                                <img src="{{ asset('images/' . $img["url"]) }}" alt="{{ $img["title"] or $species->name }}">
+                            </a>
+                        </div>
+                @endforeach
+            </div>
+            <div style="clear: both"></div>
 
-
-            <h3 style="clear: both">Additionnal references</h3>
-            <div class="references">
+            <div class="references ref-desktop">
+                <h3 style="clear: both">Additionnal references</h3>
                 {!! $species->data["Additional References"] !!}
             </div>
 
         </aside>
+        <main class="col-md-7 col-md-pull-5 col-lg-8 col-lg-pull-4">
+            {!! $species->data["Text"] !!}
+        </main>
+
+    </div>
+
+    <div class="row references ref-mobile">
+        <div class="col-md-12">
+            <h3 style="clear: both">Additionnal references</h3>
+            {!! $species->data["Additional References"] !!}
+        </div>
     </div>
 
     <p>

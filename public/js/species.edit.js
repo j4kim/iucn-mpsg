@@ -12,4 +12,16 @@ form.onsubmit = function() {
 
     var Additional_References = document.querySelector('input[name=Additional_References]');
     Additional_References.value =  document.querySelector('#quillAddRef').children[0].innerHTML;
+};
+
+document.querySelector('#Common_name').oninput = checkPlurality;
+
+function checkPlurality(){
+    if(document.querySelector('#Common_name').value.includes(";")){
+        document.querySelector('#Common_name_label').innerHTML = "Common names"
+    }else{
+        document.querySelector('#Common_name_label').innerHTML = "Common name"
+    }
 }
+
+checkPlurality();
