@@ -49,17 +49,10 @@ class SpeciesController extends Controller
     {
         $species = Species::find($id);
 
-        $summary = $species->data["Summary"];
-        // plural if there are several common names, ie if there is a semicolon
-        if(strpos($summary["Common name"],';')){
-            $summary["Common names"] = $summary["Common name"];
-            unset($summary["Common name"]);
-        }
-
         $imgs = $species->data["Images"];
         $header_img = $imgs[array_rand($imgs)];
         $header_img_url = asset('images/' . $header_img['url']);
-        return view('species.show', compact('species', 'summary', 'header_img_url'));
+        return view('species.show', compact('species', 'header_img_url'));
     }
 
     /**

@@ -1,8 +1,14 @@
-total : 16h30
+total : 17h30
+
+# 28.02.17
+
+* sommaire d'une espèce toujours dans le bon ordre
+* liste des pages dans le header et recherche de design non concluant
+
+1h
 
 # 26.02.17
 
-17h
 * CSS propres pour tous les écrans
 * Reformattage du json species
 * Affichage correct du nom latin et son auteur

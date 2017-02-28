@@ -15,26 +15,52 @@
             <h3>Summary</h3>
             <table class="table">
                 <tbody>
-                @foreach($summary as $key => $value)
+                {{--@foreach($summary as $key => $value)--}}
+                    {{--<tr>--}}
+                        {{--<th>{{ $key }}</th>--}}
+                        {{--@if(is_string($value))--}}
+                            {{--<td><strong>{{ $value }}</strong></td>--}}
+                        {{--@elseif(is_array($value))--}}
+                            {{--<td><strong><em>{{ $value["Name"] }}</em></strong> {{ $value["Author"] }}</td>--}}
+                        {{--@endif--}}
+                    {{--</tr>--}}
+                {{--@endforeach--}}
+                <?php $summary = $species->data["Summary"]; ?>
                     <tr>
-                        <th>{{ $key }}</th>
-                        @if(is_string($value))
-                            <td><strong>{{ $value }}</strong></td>
-                        @elseif(is_array($value))
-                            <td><strong><em>{{ $value["Name"] }}</em></strong> {{ $value["Author"] }}</td>
-                        @endif
+                        <th>Latin name</th>
+                        <td><strong><em>{{ $summary['Latin name']['Name'] }}</em></strong> {{ $summary['Latin name']['Author'] }}</td>
                     </tr>
-                @endforeach
-                    {{--<tr>--}}
-                        {{--<th>Latin name</th>--}}
-                        {{--<td><strong><em>{{ $summary['Latin name']['Name'] }}</em></strong> {{ $summary['Latin name']['Author'] }}</td>--}}
-                    {{--</tr>--}}
-                    {{--@if(isset($summary['Synonym']))--}}
-                    {{--<tr>--}}
-                        {{--<th>Synonym</th>--}}
-                        {{--<td><strong><em>{{ $summary['Synonym']['Name'] }}</em></strong> {{ $summary['Synonym']['Author'] }}</td>--}}
-                    {{--</tr>--}}
-                    {{--@endif--}}
+                @if(isset($summary['Synonym']))
+                    <tr>
+                        <th>Synonym</th>
+                        <td><strong><em>{{ $summary['Synonym']['Name'] }}</em></strong> {{ $summary['Synonym']['Author'] }}</td>
+                    </tr>
+                @endif
+                @if(isset($summary['Common name']))
+                    <tr>
+                        <th>
+                        {{-- Plural if there ara multiple common names -> ie. ther is a semicolon --}}
+                        @if(strpos($summary["Common name"],';'))
+                            Common names
+                        @else
+                            Common name
+                        @endif
+                        </th>
+                        <td><strong>{{ $summary['Common name'] }}</strong></td>
+                    </tr>
+                @endif
+                @if(isset($summary['Family']))
+                    <tr>
+                        <th>Family</th>
+                        <td><strong>{{ $summary['Family'] }}</strong></td>
+                    </tr>
+                @endif
+                @if(isset($summary['Status']))
+                    <tr>
+                        <th>Status</th>
+                        <td><strong>{{ $summary['Status'] }}</strong></td>
+                    </tr>
+                @endif
                 </tbody>
             </table>
 

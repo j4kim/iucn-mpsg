@@ -24,13 +24,34 @@
                 <img src="{{ asset('images/logo-iucn.png') }}">
                 <h1>{{ config('app.name') }}</h1>
             </a>
-            <h1 class="title">@yield('title')</h1>
+            <ul>
+                @foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact",] as $tab)
+                    <li><a>{{ $tab }}</a></li>
+                @endforeach
+            </ul>
+            {{--<nav class="navbar navbar-default">--}}
+                {{--<div class="container">--}}
+                    {{--<div class="navbar-header">--}}
+                        {{--<a href="{{ url('/') }}" class="title-logo">--}}
+                            {{--<img src="{{ asset('images/logo-iucn.png') }}">--}}
+                            {{--<h1>{{ config('app.name') }}</h1>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<ul class="nav navbar-nav">--}}
+                        {{--@foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact",] as $tab)--}}
+                            {{--<li><a href="#">{{ $tab }}</a></li>--}}
+                        {{--@endforeach--}}
+                    {{--</ul>--}}
+                    {{--<h1 class="title">@yield('title')</h1>--}}
+                {{--</div>--}}
+            {{--</nav>--}}
         </div>
     </header>
     <div class="img-header">
         @yield('header')
     </div>
     <div class="container content">
+        <h1 class="title">@yield('title')</h1>
         @yield('content')
     </div>
     @yield('scripts')
