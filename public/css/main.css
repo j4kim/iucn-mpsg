@@ -13,8 +13,29 @@ header{
     display: none;
 }
 
-.title{
+ul.nav{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    display: inline;
     float: right;
+}
+
+ul.nav li{
+    float: left;
+}
+
+.title{
+    font-size: 36px;
+    z-index: 1;
+    position: absolute;
+    font-weight: bold;
+    font-style: italic;
+
+    color: white;
+    /* background-color: white; */
+     padding: 5px;
+    text-shadow: 2px 2px 7px rgba(0,0,0,0.3);
 }
 
 .img-header{

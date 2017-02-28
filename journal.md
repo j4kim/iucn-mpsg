@@ -3,9 +3,10 @@ total : 17h30
 # 28.02.17
 
 * sommaire d'une espèce toujours dans le bon ordre
-* liste des pages dans le header et recherche de design non concluant
+* liste des pages dans le header
+* design header titre + navigation
 
-1h
+1h30
 
 # 26.02.17
 

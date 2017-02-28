@@ -4,6 +4,7 @@
 
 @section('header')
     <div class="container">
+        <h1 class="title">{{ $species->name }}</h1>
         <img src="{{ $header_img_url }}">
     </div>
 @endsection

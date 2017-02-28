@@ -24,9 +24,9 @@
                 <img src="{{ asset('images/logo-iucn.png') }}">
                 <h1>{{ config('app.name') }}</h1>
             </a>
-            <ul>
+            <ul class="nav">
                 @foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact",] as $tab)
-                    <li><a>{{ $tab }}</a></li>
+                    <li><a href="/" class="active">{{ $tab }}</a></li>
                 @endforeach
             </ul>
             {{--<nav class="navbar navbar-default">--}}
@@ -51,7 +51,6 @@
         @yield('header')
     </div>
     <div class="container content">
-        <h1 class="title">@yield('title')</h1>
         @yield('content')
     </div>
     @yield('scripts')
