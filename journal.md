@@ -1,4 +1,9 @@
-total : 17h30
+total : 18h00
+
+# 01.03.17
+
+* Images dans species.edit
+* Checkboxes des îles de la plantes checkées
 
 # 28.02.17
 
@@ -6,7 +11,7 @@ total : 17h30
 * liste des pages dans le header
 * design header titre + navigation
 
-1h30
+2h
 
 # 26.02.17
 

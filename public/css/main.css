@@ -5,8 +5,12 @@ LAYOUT
 /* Header */
 
 header{
-    padding: 15px;
+    /*padding: 15px;*/
     /*background-color: #fafafa;*/
+}
+
+header .title-logo img{
+    padding: 15px 0 15px 0;
 }
 
 .title-logo h1{
@@ -26,15 +30,15 @@ ul.nav li{
 }
 
 .title{
-    font-size: 36px;
+    /*font-size: 36px;*/
     z-index: 1;
     position: absolute;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-style: italic;
 
     color: white;
     /* background-color: white; */
-     padding: 5px;
+    padding: 5px;
     text-shadow: 2px 2px 7px rgba(0,0,0,0.3);
 }
 
@@ -78,8 +82,12 @@ aside{
     padding-top: 20px;
 }
 
-aside > h3:first-child{
+aside > h2:first-child{
     margin-top: 0;
+}
+
+h2{
+    font-size: 26px;
 }
 
 .species-map{
@@ -141,4 +149,16 @@ SPECIES EDIT
 
 .editor{
     max-height:50%;
+}
+
+.editor h2, .editor h3{
+    margin:20px 0 10px 0;
+}
+
+.editor p{
+    margin:0 0 10px 0;
+}
+
+.image-edit{
+    margin: 10px 0 10px 0;
 }

@@ -13,7 +13,7 @@
     <div class="row">
         <aside class="col-md-5 col-md-push-7 col-lg-4 col-lg-push-8">
 
-            <h3>Summary</h3>
+            <h2>Summary</h2>
             <table class="table">
                 <tbody>
                 {{--@foreach($summary as $key => $value)--}}
@@ -76,7 +76,7 @@
                 </div>
             @endforeach
 
-            <h3>Gallery</h3>
+            <h2>Gallery</h2>
             <div class="image-gallery">
                 @foreach ($species->data["Images"] as $img)
                         <div class="thumbnail species-image">
@@ -89,7 +89,7 @@
             <div style="clear: both"></div>
 
             <div class="references ref-desktop">
-                <h3 style="clear: both">Additionnal references</h3>
+                <h2 style="clear: both">Additionnal references</h2>
                 {!! $species->data["Additional References"] !!}
             </div>
 
@@ -102,7 +102,7 @@
 
     <div class="row references ref-mobile">
         <div class="col-md-12">
-            <h3 style="clear: both">Additionnal references</h3>
+            <h2 style="clear: both">Additionnal references</h2>
             {!! $species->data["Additional References"] !!}
         </div>
     </div>

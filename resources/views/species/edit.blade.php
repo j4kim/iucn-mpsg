@@ -49,14 +49,19 @@
                     <input class="form-control" type="text" id="Status" name="Status" value="{{ $species->data["Summary"]["Status"] or "" }}">
                 </div>
             </div>
-
             <div class="form-group">
                 <label class="control-label col-sm-2">Islands</label>
                 <div class="col-sm-10">
                     @foreach($islands as $island)
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="{{ $island->id }}"> {{ $island->name }}
+                                <input type="checkbox"
+                                       value="{{ $island->id }}"
+                                       @if(in_array($island->id, $species_islands))
+                                           checked
+                                       @endif
+                                >
+                                {{ $island->name }}
                             </label>
                         </div>
                     @endforeach
@@ -66,14 +71,65 @@
             <div class="form-group">
                 <label class="control-label col-sm-2">Images</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control-file" id="">
+                    @foreach($species->data['Images'] as $n => $img)
+                        <div class="image-edit row">
+                            <div class="col-sm-4">
+                                <img src="{{ asset('images/' . $img["url"]) }}" width="100%">
+                            </div>
+                            <div class="col-sm-8">
+                                <p>
+                                    <label class="control-label" for="title-image-{{ $n }}">Title</label>
+                                    <div class="">
+                                        <input class="form-control" type="text" id="title-image-{{ $n }}" name="Image_Name_{{$n}}" value="{{ $img["title"] or "" }}">
+                                    </div>
+                                    <label class="control-label" for="legend-image-{{ $n }}">Legend</label>
+                                    <div class="">
+                                        <input class="form-control" type="text" id="legend-image-{{ $n }}" name="Image_Legend_{{$n}}" value="{{ $img["legend"] or "" }}">
+                                    </div>
+                                </p>
+                                <p>
+                                    <button class="btn btn-danger">Remove</button>
+                                </p>
+                            </div>
+                        </div>
+                    @endforeach
+
+                    <div>
+                        <label for="image-input" class="form-control btn btn-primary">Add image</label>
+                        <input type="file" id="image-input" accept="image/*" name="image_0" style="display:none">
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-sm-2">Maps</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control-file" id="" >
+                    @foreach($species->data['Maps'] as $n => $img)
+                        <div class="image-edit row">
+                            <div class="col-sm-4">
+                                <img src="{{ asset('images/' . $img["url"]) }}" width="100%">
+                            </div>
+                            <div class="col-sm-8">
+                                <p>
+                                    <label class="control-label" for="title-map-{{ $n }}">Title</label>
+                                <div class="">
+                                    <input class="form-control" type="text" id="title-map-{{ $n }}" name="Map_Name_{{$n}}" value="{{ $img["title"] or "" }}">
+                                </div>
+                                <label class="control-label" for="legend-map-{{ $n }}">Legend</label>
+                                <div class="">
+                                    <input class="form-control" type="text" id="legend-map-{{ $n }}" name="Map_Legend_{{$n}}" value="{{ $img["legend"] or "" }}">
+                                </div>
+                                </p>
+                                <p>
+                                    <button class="btn btn-danger">Remove</button>
+                                </p>
+                            </div>
+                        </div>
+                    @endforeach
+                    <div>
+                        <label for="map-input" class="form-control btn btn-primary">Add map image</label>
+                        <input type="file" id="map-input" accept="image/*" name="map_0" style="display:none">
+                    </div>
                 </div>
             </div>
 

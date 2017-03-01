@@ -63,7 +63,12 @@ class SpeciesController extends Controller
      */
     public function edit($id)
     {
-        return view('species.edit', ['species' => Species::find($id), 'islands' => Island::all()]);
+        $species = Species::find($id);
+        $species_islands = [];
+        foreach($species->islands as $spe){
+            $species_islands[] = $spe->id;
+        }
+        return view('species.edit', ['species' => $species, 'islands' => Island::all(), 'species_islands' => $species_islands]);
     }
 
     /**
