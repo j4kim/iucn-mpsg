@@ -100,12 +100,6 @@ h2{
     background-color: #fafafa;
 }
 
-.image-gallery{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 
 /*
 MEDIA QUERIES
@@ -113,6 +107,7 @@ MEDIA QUERIES
 
 .image-gallery .species-image{
     width: 48%;
+    margin-right:2%;
     float: left;
 }
 
@@ -138,7 +133,8 @@ MEDIA QUERIES
     }
 
     .image-gallery .species-image{
-        width: 30%;
+        width: 31%;
+        margin-right:2%;
         float: left;
     }
     }

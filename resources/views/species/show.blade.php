@@ -16,16 +16,6 @@
             <h2>Summary</h2>
             <table class="table">
                 <tbody>
-                {{--@foreach($summary as $key => $value)--}}
-                    {{--<tr>--}}
-                        {{--<th>{{ $key }}</th>--}}
-                        {{--@if(is_string($value))--}}
-                            {{--<td><strong>{{ $value }}</strong></td>--}}
-                        {{--@elseif(is_array($value))--}}
-                            {{--<td><strong><em>{{ $value["Name"] }}</em></strong> {{ $value["Author"] }}</td>--}}
-                        {{--@endif--}}
-                    {{--</tr>--}}
-                {{--@endforeach--}}
                 <?php $summary = $species->data["Summary"]; ?>
                     <tr>
                         <th>Latin name</th>

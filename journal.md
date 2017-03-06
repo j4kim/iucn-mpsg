@@ -7,6 +7,7 @@ total : 21h30
 * dépendances dans package.json
 * class="active" dans l'onglet actif dans layout.blade
 * routes ressources pour island et page
+* Galleries d'images sans flexboxes
 
 1h30 min
 
