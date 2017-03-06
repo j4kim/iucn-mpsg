@@ -1,9 +1,21 @@
-total : 18h00
+total : 21h30
+
+# 06.03.17
+
+* Nouveau modèle/migration/seeder Page
+* species dans l'ordre alphabetique
+* dépendances dans package.json
+* class="active" dans l'onglet actif dans layout.blade
+* routes ressources pour island et page
+
+1h30 min
 
 # 01.03.17
 
 * Images dans species.edit
 * Checkboxes des îles de la plantes checkées
+
+2h
 
 # 28.02.17
 

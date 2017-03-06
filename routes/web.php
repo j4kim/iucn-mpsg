@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('species', 'SpeciesController');
+Route::resource('islands', 'IslandController');
+Route::resource('pages', 'PageController');

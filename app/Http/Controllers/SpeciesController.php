@@ -15,7 +15,7 @@ class SpeciesController extends Controller
      */
     public function index()
     {
-        return view('species.index', ['species' => Species::all()]);
+        return view('species.index', ['species' => Species::orderBy("name")->get()]);
     }
 
     /**
