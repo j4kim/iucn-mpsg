@@ -22,8 +22,8 @@
             <ul class="nav">
                 @foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact"] as $tab)
                     <li>
-                        <a href="/"
-                        {{ is_numeric(strpos(Request::path(), strtolower($tab))) ? 'class="active"':'' }}
+                        <a href="{{strtolower($tab)}}"
+                        {{ is_numeric(strpos(Request::path(), strtolower($tab))) ? 'class=active':'' }}
                         >
                             {{ $tab }}
                         </a>

@@ -18,7 +18,8 @@ $brand-danger: #bf5329;
 
 // Typography
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif: "Raleway", sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i');
+$font-family-sans-serif: "Open sans", sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #333;

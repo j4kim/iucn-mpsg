@@ -1,4 +1,4 @@
-total : 21h30
+total : 22h00
 
 # 06.03.17
 
@@ -8,8 +8,9 @@ total : 21h30
 * class="active" dans l'onglet actif dans layout.blade
 * routes ressources pour island et page
 * Galleries d'images sans flexboxes
+* Navigation et page active
 
-1h30 min
+2h min
 
 # 01.03.17
 

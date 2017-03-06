@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::resource('species', 'SpeciesController');
 Route::resource('islands', 'IslandController');
 Route::resource('pages', 'PageController');
+
+Route::get('/{page}',function($title){
+    $page = \App\Page::where('title',$title)->first();
+    return view('page', ['page'=>$page]);
+});
