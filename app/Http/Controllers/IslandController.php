@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Island;
 use Illuminate\Http\Request;
 
 class IslandController extends Controller
@@ -13,7 +14,7 @@ class IslandController extends Controller
      */
     public function index()
     {
-        //
+        return view('island.index', ['islands' => Island::orderBy("name")->get()]);
     }
 
     /**
@@ -45,7 +46,8 @@ class IslandController extends Controller
      */
     public function show($id)
     {
-        //
+        $island = Island::find($id);
+        return view('island.show', compact('island'));
     }
 
     /**

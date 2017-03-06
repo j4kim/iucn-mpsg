@@ -1,8 +1,9 @@
 @extends('layout')
 
-@section('title', 'Species list')
+@section('title', 'List of species')
 
 @section('content')
+    <h1>List of species</h1>
     <ul>
     @foreach ($species as $s)
         <li>

@@ -1,4 +1,4 @@
-total : 22h00
+total : 23h00
 
 # 06.03.17
 
@@ -9,8 +9,9 @@ total : 22h00
 * routes ressources pour island et page
 * Galleries d'images sans flexboxes
 * Navigation et page active
+* Vues island.index et island.show
 
-2h min
+3h00 min
 
 # 01.03.17
 
