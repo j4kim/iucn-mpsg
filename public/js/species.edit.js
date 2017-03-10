@@ -10704,25 +10704,25 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
     + "\" width=\"100%\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <label class=\"control-label\" for=\"title-"
     + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
     + "-"
-    + alias4(((helper = (helper = helpers.n || (depth0 != null ? depth0.n : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"n","hash":{},"data":data}) : helper)))
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
     + "\">Title</label>\r\n        <div class=\"\">\r\n            <input class=\"form-control\" type=\"text\" id=\"title-"
     + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
     + "-"
-    + alias4(((helper = (helper = helpers.n || (depth0 != null ? depth0.n : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"n","hash":{},"data":data}) : helper)))
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
     + "\" name=\""
     + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
     + "_title_"
-    + alias4(((helper = (helper = helpers.n || (depth0 != null ? depth0.n : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"n","hash":{},"data":data}) : helper)))
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
     + "\" value=\""
     + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.title : stack1), depth0))
     + "\">\r\n        </div>\r\n        <label class=\"control-label\" for=\"legend-map-"
-    + alias4(((helper = (helper = helpers.n || (depth0 != null ? depth0.n : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"n","hash":{},"data":data}) : helper)))
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
     + "\">Legend</label>\r\n        <div class=\"\">\r\n            <input class=\"form-control\" type=\"text\" id=\"legend-map-"
-    + alias4(((helper = (helper = helpers.n || (depth0 != null ? depth0.n : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"n","hash":{},"data":data}) : helper)))
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
     + "\" name=\""
     + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
     + "_legend_"
-    + alias4(((helper = (helper = helpers.n || (depth0 != null ? depth0.n : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"n","hash":{},"data":data}) : helper)))
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
     + "\" value=\""
     + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.legend : stack1), depth0))
     + "\">\r\n        </div>\r\n        <button class=\"btn btn-danger\">Remove</button>\r\n    </div>\r\n</div>";

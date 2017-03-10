@@ -17,4 +17,14 @@ class Species extends Model
     {
         return $this->belongsToMany('App\Island');
     }
+
+    public function images()
+    {
+        return $this->hasMany('App\Image');
+    }
+
+    public function maps()
+    {
+        return $this->hasMany('App\Map');
+    }
 }

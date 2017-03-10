@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PagesTableSeeder::class);
         $this->call(IslandsTableSeeder::class);
         $this->call(SpeciesTableSeeder::class);
+        $this->call(ImagesTableSeeder::class);
+        $this->call(MapsTableSeeder::class);
     }
 }

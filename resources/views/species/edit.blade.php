@@ -72,7 +72,7 @@
                 <label class="control-label col-sm-2">Images</label>
                 <div class="col-sm-10">
                     <div id="images-img">
-                        @foreach($species->data['Images'] as $n => $img)
+                        @foreach($species->images as $img)
                             @include("species.image", ["url" => asset('images/' . $img["url"]), 'type' => 'img'])
                         @endforeach
                     </div>
@@ -88,7 +88,7 @@
                 <label class="control-label col-sm-2">Maps</label>
                 <div class="col-sm-10">
                     <div id="images-map">
-                        @foreach($species->data['Maps'] as $n => $img)
+                        @foreach($species->maps as $img)
                             @include("species.image", ["url" => asset('images/' . $img["url"]), 'type' => 'map'])
                         @endforeach
                     </div>

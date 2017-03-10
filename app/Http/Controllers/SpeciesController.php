@@ -48,10 +48,9 @@ class SpeciesController extends Controller
     public function show($id)
     {
         $species = Species::find($id);
-
-        $imgs = $species->data["Images"];
+        $imgs = $species->images->all();
         $header_img = $imgs[array_rand($imgs)];
-        $header_img_url = asset('images/' . $header_img['url']);
+        $header_img_url = asset('images/' . $header_img->url);
         return view('species.show', compact('species', 'header_img_url'));
     }
 

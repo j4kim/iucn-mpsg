@@ -55,7 +55,7 @@
                 </tbody>
             </table>
 
-            @foreach ($species->data["Maps"] as $img)
+            @foreach ($species->maps as $img)
                 <div class="thumbnail">
                     <a href="{{ asset('images/' . $img["url"]) }}">
                         <img class="species-map"
@@ -68,10 +68,10 @@
 
             <h2>Gallery</h2>
             <div class="image-gallery">
-                @foreach ($species->data["Images"] as $img)
+                @foreach ($species->images as $img)
                         <div class="thumbnail species-image">
                             <a href="{{ asset('images/' . $img["url"]) }}">
-                                <img src="{{ asset('images/' . $img["url"]) }}" alt="{{ $img["title"] or $species->name }}">
+                                <img src="{!! asset('images/' . $img["url"])  !!}" alt="{{ $img["title"] or $species->name }}">
                             </a>
                         </div>
                 @endforeach
