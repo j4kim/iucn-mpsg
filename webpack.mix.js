@@ -12,4 +12,20 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+    .js('resources/assets/js/species.edit.js', 'public/js')
+    .sass('resources/assets/sass/app.scss','public/css')
+    .styles([
+        'public/css/app.css',
+        'node_modules/quill/dist/quill.snow.css'
+    ], 'public/css/all.css')
+    .webpackConfig({
+        module: {
+            rules: [
+                    {
+                        test: /\.(handlebars|hbs)$/,
+                        loader: "handlebars-loader"
+                    }
+                ]
+
+        }
+    });

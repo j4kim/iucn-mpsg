@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>{{ config('app.name') }} - @yield('title')</title>
@@ -5,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Quill -->
-    <link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">
+    {{--<link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">--}}
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
 
 
 </head>
@@ -22,7 +23,7 @@
             <ul class="nav">
                 @foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact"] as $tab)
                     <li>
-                        <a href="/{{strtolower($tab)}}"
+                        <a href="{{ url('/' . strtolower($tab)) }}"
                         {{ is_numeric(strpos(Request::path(), strtolower($tab))) ? 'class=active':'' }}
                         >
                             {{ $tab }}

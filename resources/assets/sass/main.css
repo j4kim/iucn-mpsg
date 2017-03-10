@@ -148,7 +148,8 @@ SPECIES EDIT
 */
 
 .editor{
-    max-height:50%;
+    max-height:50vh;
+    overflow: auto;
 }
 
 .editor h2, .editor h3{

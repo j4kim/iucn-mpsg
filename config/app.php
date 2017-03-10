@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        ProAI\Handlebars\HandlebarsServiceProvider::class,
 
         /*
          * Application Service Providers...

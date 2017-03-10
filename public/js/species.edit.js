@@ -1,27 +1,86 @@
-// Quill makes these two divs editable
-var quillText = new Quill('#quillText',{theme: 'snow'});
-var quillAddRef = new Quill('#quillAddRef',{theme: 'snow'});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-var form = document.querySelector('form');
-// we need to retrieve the HTML content of the editable inputs before to submit the form
-form.onsubmit = function() {
-    // the hidden input that will contain the html text of the species
-    var Text = document.querySelector('input[name=Text]');
-    // first child of #quillText is a special div created by Quill, we dont need it
-    Text.value =  document.querySelector('#quillText').children[0].innerHTML;
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
 
-    var Additional_References = document.querySelector('input[name=Additional_References]');
-    Additional_References.value =  document.querySelector('#quillAddRef').children[0].innerHTML;
-};
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
 
-document.querySelector('#Common_name').oninput = checkPlurality;
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
 
-function checkPlurality(){
-    if(document.querySelector('#Common_name').value.includes(";")){
-        document.querySelector('#Common_name_label').innerHTML = "Common names"
-    }else{
-        document.querySelector('#Common_name_label').innerHTML = "Common name"
-    }
-}
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
-checkPlurality();
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "./";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 33:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(6);
+
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: SyntaxError: C:/laragon/www/uicntop50/resources/assets/js/species.edit.js: Unexpected token (45:16)\n\n\u001b[0m \u001b[90m 43 | \u001b[39m                    type\u001b[33m:\u001b[39mtype\u001b[33m,\u001b[39m\n \u001b[90m 44 | \u001b[39m                    n\u001b[33m:\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 45 | \u001b[39m                }))\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 46 | \u001b[39m            }\u001b[33m;\u001b[39m\n \u001b[90m 47 | \u001b[39m\n \u001b[90m 48 | \u001b[39m            reader\u001b[33m.\u001b[39mreadAsDataURL(input\u001b[33m.\u001b[39mfiles[\u001b[35m0\u001b[39m])\u001b[33m;\u001b[39m\u001b[0m\n");
+
+/***/ })
+
+/******/ });

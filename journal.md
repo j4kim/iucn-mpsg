@@ -1,4 +1,10 @@
-total : 23h00
+total : 25h00
+
+# 10.03.17
+
+* Mise en place de handlebars et templates pour les input images
+
+2h
 
 # 06.03.17
 
@@ -11,7 +17,7 @@ total : 23h00
 * Navigation et page active
 * Vues island.index et island.show
 
-3h00 min
+3h
 
 # 01.03.17
 
