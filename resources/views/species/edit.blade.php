@@ -77,15 +77,9 @@
                         @endforeach
                     </div>
 
-                    <div class="col-sm-4">
-                        <img id="image-preview" width="100%">
-                    </div>
-                    <div class="col-sm-8">
-                    </div>
-
                     <div>
                         <label for="image-input" class="form-control btn btn-primary">Add image</label>
-                        <input type="file" id="image-input" accept="image/*" name="image_0" style="display:none">
+                        <input type="file" id="image-input" accept="image/*" style="display:none">
                     </div>
                 </div>
             </div>

@@ -97,6 +97,16 @@ class SpeciesController extends Controller
                 $data["Summary"][$key] = $value;
         }
 
+        $imgs = [];
+        foreach($request->all() as $k => $v){
+            if(strpos($k, 'img') === 0){
+                $id = filter_var($k, FILTER_SANITIZE_NUMBER_INT);
+                $imgs[$id][$k] = $v;
+                $imgs[$id]["is_new"] = strpos($k, 'new');
+            }
+        }
+        dd($imgs);
+
         $data["Text"] = $request->Text;
         $data["Additional References"] = $request->Additional_References;
 
