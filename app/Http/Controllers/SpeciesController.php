@@ -138,7 +138,6 @@ class SpeciesController extends Controller
                             $model = $cat=='img' ? Image::class : Map::class;
                             if($toDelete = $model::find($id_to_del))
                                 $toDelete->realDelete();
-
                         }
                     }else{
                         // récupère un entier dans le nom de l'input
@@ -201,8 +200,12 @@ class SpeciesController extends Controller
     {
         $toDelete = Species::find($id);
         $toDelete->islands()->detach();
-        $toDelete->images()->realDelete();
-        $toDelete->maps()->realDelete();
+        foreach ($toDelete->images as $img){
+            $img->realDelete();
+        }
+        foreach ($toDelete->maps as $map){
+            $map->realDelete();
+        }
         $toDelete->delete();
         return redirect()->route('species.index');
     }
