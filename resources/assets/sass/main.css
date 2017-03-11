@@ -70,11 +70,24 @@ ul.nav li{
 FOOTER
 */
 
+body{
+    min-height: 100vh;
+    position: relative;
+}
+
+.content{
+    padding-bottom: 50px;
+}
+
 footer{
     text-align: center;
     font-size: 0.9rem;
     color: #999;
     margin-top: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
 }
 
 
