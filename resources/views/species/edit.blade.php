@@ -3,7 +3,7 @@
 @section('title', 'Edition species ' . $species->name)
 
 @section('content')
-        <form class="form-horizontal" action="{{ route('species.update', $species->id)}}" method="POST">
+        <form class="form-horizontal" action="{{ route('species.update', $species->id)}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
 

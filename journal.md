@@ -1,10 +1,13 @@
-total : 25h00
+total : 27h00
 
 # 10.03.17
 
 * Mise en place de handlebars et templates pour les input images
+* Images et maps dans des tables séparées
+* Mise à jour des images existantes
+* Upload des nouvelles images avec version small
 
-2h
+4h
 
 # 06.03.17
 

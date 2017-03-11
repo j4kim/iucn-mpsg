@@ -41,7 +41,7 @@ $(function(){
                 $('#images-'+type).append(image_template({
                     url:e.target.result,
                     type:type,
-                    n:n
+                    img:{id:n}
                 }));
             };
 

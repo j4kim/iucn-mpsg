@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Island;
 use App\Species;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Intervention;
 
 class SpeciesController extends Controller
 {
@@ -96,15 +98,37 @@ class SpeciesController extends Controller
                 $data["Summary"][$key] = $value;
         }
 
-        $imgs = [];
+        $imgs = ['img'=>[],'map'=>[]];
         foreach($request->all() as $k => $v){
-            if(strpos($k, 'img') === 0){
-                $id = filter_var($k, FILTER_SANITIZE_NUMBER_INT);
-                $imgs[$id][$k] = $v;
-                $imgs[$id]["is_new"] = strpos($k, 'new');
+            foreach (['img','map'] as $cat){
+                if(strpos($k, $cat) === 0){
+                    $id = filter_var($k, FILTER_SANITIZE_NUMBER_INT);
+                    $imgs[$cat][$id][$k] = $v;
+                    if($imgs[$cat][$id]["is_new"] = strpos($k, 'new'))
+                        $imgs[$cat][$id]["file"] = $request->file($k);
+                    if(strpos($k, 'title'))
+                        $imgs[$cat][$id]["title"] = $v;
+                    if(strpos($k, 'legend'))
+                        $imgs[$cat][$id]["legend"] = $v;
+                }
             }
         }
-        dd($imgs);
+
+        foreach ($imgs['img'] as $id => $img){
+            if($img['is_new']){
+                $url = $img['title'] . $id . '.' . $img['file']->getClientOriginalExtension();
+                Intervention::make($img['file'])->save("images/$url")
+                    ->widen(480)->save("images/small/$url");
+                Image::create([
+                    'title'=>$img['title'],
+                    'legend'=>$img['legend'],
+                    'url'=>$url,
+                    'species_id'=>$species->id
+                ]);
+            }else{
+                Image::find($id)->update($img);
+            }
+        }
 
         $data["Text"] = $request->Text;
         $data["Additional References"] = $request->Additional_References;
