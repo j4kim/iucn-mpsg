@@ -121,9 +121,6 @@ class SpeciesController extends Controller
         // attach new islands
         if(count($request->islands)){
             $species->islands()->attach($request->islands);
-//            foreach($request->islands as $i_id){
-//                $species->islands()->attach($i_id);
-//            }
         }
 
         /*
@@ -140,7 +137,7 @@ class SpeciesController extends Controller
                         foreach($v as $id_to_del){
                             $model = $cat=='img' ? Image::class : Map::class;
                             if($toDelete = $model::find($id_to_del))
-                                $toDelete->delete();
+                                $toDelete->realDelete();
 
                         }
                     }else{
@@ -162,7 +159,7 @@ class SpeciesController extends Controller
         function saveImages($imgs, $model, $folder, $species){
             foreach ($imgs as $id => $img){
                 if($img['is_new']){
-                    $url = /*$img['title'] . '_' . */ uniqid() . '.' . $img['file']->getClientOriginalExtension();
+                    $url = uniqid() . '.' . $img['file']->getClientOriginalExtension();
                     Intervention::make($img['file'])->save("uploads/$folder/$url")
                         ->widen(320)->save("uploads/$folder/small/$url");
                     $model::create([
@@ -204,8 +201,8 @@ class SpeciesController extends Controller
     {
         $toDelete = Species::find($id);
         $toDelete->islands()->detach();
-        $toDelete->images()->delete();
-        $toDelete->maps()->delete();
+        $toDelete->images()->realDelete();
+        $toDelete->maps()->realDelete();
         $toDelete->delete();
         return redirect()->route('species.index');
     }

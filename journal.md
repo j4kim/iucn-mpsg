@@ -13,6 +13,7 @@ total : 34h00
 * Création d'éspèces
 * Authentification
 * Bouton edit que si admin
+* Suppression des images sur le disque
 
 7h
 
