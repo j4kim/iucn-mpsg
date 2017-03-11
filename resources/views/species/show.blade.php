@@ -52,6 +52,16 @@
                         <td><strong>{{ $summary['Status'] }}</strong></td>
                     </tr>
                 @endif
+                <tr>
+                    <th>Islands</th>
+                    <td>
+                        <ul class="island-list">
+                            @foreach($species->islands as $isl)
+                                <li><a href="{{ route('islands.show', $isl->id) }}"><strong>{{ $isl->name }}</strong> ({{ $isl->country }})</a></li>
+                            @endforeach
+                        </ul>
+                    </td>
+                </tr>
                 </tbody>
             </table>
 
@@ -98,6 +108,6 @@
     </div>
 
     <p>
-        <a href="{{ route('species.edit', $species->id) }}">edit</a>
+        <a class="btn btn-info" href="{{ route('species.edit', $species->id) }}">edit</a>
     </p>
 @endsection

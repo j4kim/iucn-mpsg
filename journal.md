@@ -1,11 +1,22 @@
-total : 30h00
+total : 32h00
+
+todo :  
+* Authentification
+* Bouton edit que si admin
 
 # 11.03.17
 
 * Chargement des images version petites
 * Suppression des images et cartes
+* Footer
+* Attachement-détachement des îles aux éspèces
+* Affichage des îles sur la fiche
+* Liens vers l'île
+* Édition des pages
+* Confirmation avant suppression
+* Création d'éspèces
 
-2h
+5h
 
 # 10.03.17
 

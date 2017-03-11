@@ -5,7 +5,7 @@ $(function(){
     var quillText = new Quill('#quillText',{theme: 'snow'});
     var quillAddRef = new Quill('#quillAddRef',{theme: 'snow'});
 
-    var form = document.querySelector('form');
+    var form = document.getElementById('species-edit-form');
     // we need to retrieve the HTML content of the editable inputs before to submit the form
     form.onsubmit = function() {
         // the hidden input that will contain the html text of the species
@@ -61,5 +61,12 @@ $(function(){
         var $hid = "<input type='hidden' name='"+type+"_remove[]' value='"+id+"'>";
         $($hid).insertAfter($('#images-'+type));
     });
+    
+    
+    $("#species-delete-form").submit(function (e) {
+        if(!confirm("Delete this species ?")){
+            e.preventDefault();
+        }
+    })
 
 });

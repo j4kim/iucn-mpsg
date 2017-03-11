@@ -66,6 +66,17 @@ ul.nav li{
     width: 100%;
 }
 
+/*
+FOOTER
+*/
+
+footer{
+    text-align: center;
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 100px;
+}
+
 
 /*
 GENERAL
@@ -73,6 +84,10 @@ GENERAL
 
 a, a:hover{
     color:#b91818;
+}
+
+.btn{
+    margin-top: 10px;
 }
 
 /*
@@ -98,6 +113,12 @@ h2{
     font-size: small;
     word-wrap: break-word;
     background-color: #fafafa;
+}
+
+.island-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 

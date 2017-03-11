@@ -13,4 +13,8 @@
         </li>
     @endforeach
     </ul>
+
+    <p>
+        <a class="btn btn-info" href="{{ route('species.create') }}">new</a>
+    </p>
 @endsection

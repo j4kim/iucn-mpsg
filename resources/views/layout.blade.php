@@ -39,6 +39,9 @@
     <div class="container content">
         @yield('content')
     </div>
+    <footer>
+        IUCN's Top 50 Mediterranean Island Plants - 2017 - Joaquim Perez
+    </footer>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>

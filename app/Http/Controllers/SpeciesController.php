@@ -8,6 +8,7 @@ use App\Map;
 use App\Species;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Intervention;
+use Symfony\Component\Debug\Exception\FatalThrowableError;
 
 class SpeciesController extends Controller
 {
@@ -28,7 +29,8 @@ class SpeciesController extends Controller
      */
     public function create()
     {
-        //
+        $new = Species::create();
+        return redirect()->route('species.edit', $new->id);
     }
 
     /**
@@ -86,6 +88,9 @@ class SpeciesController extends Controller
     {
         $species = Species::find($id);
 
+        /*
+         * Summary
+         */
         $name = $request->Latin_name;
         $data = $species->data;
 
@@ -101,6 +106,23 @@ class SpeciesController extends Controller
                 $data["Summary"][$key] = $value;
         }
 
+        /*
+         * Islands
+         */
+        // detach all
+        $species->islands()->detach();
+        // attach new islands
+        if(count($request->islands)){
+            $species->islands()->attach($request->islands);
+//            foreach($request->islands as $i_id){
+//                $species->islands()->attach($i_id);
+//            }
+        }
+
+        /*
+         * Images and Maps
+         */
+        // peuple deux tableaux $imgs['img'] et $imgs['map']
         $imgs = ['img'=>[],'map'=>[]];
         foreach($request->all() as $k => $v){
             foreach (['img','map'] as $cat){
@@ -110,7 +132,9 @@ class SpeciesController extends Controller
                         // on doit supprimer une ou plusieurs images ou carte
                         foreach($v as $id_to_del){
                             $model = $cat=='img' ? Image::class : Map::class;
-                            $model::find($id_to_del)->delete();
+                            if($toDelete = $model::find($id_to_del))
+                                $toDelete->delete();
+
                         }
                     }else{
                         // récupère un entier dans le nom de l'input
@@ -127,6 +151,7 @@ class SpeciesController extends Controller
             }
         }
 
+        // reçoit un tableau d'images à créer dans dans un modèle
         function saveImages($imgs, $model, $folder, $species){
             foreach ($imgs as $id => $img){
                 if($img['is_new']){
@@ -148,9 +173,15 @@ class SpeciesController extends Controller
         saveImages($imgs['img'], Image::class, 'images', $species);
         saveImages($imgs['map'], Map::class, 'maps', $species);
 
+        /*
+         * Text and references
+         */
         $data["Text"] = $request->Text;
         $data["Additional References"] = $request->Additional_References;
 
+        /*
+         * Save and redirect
+         */
         $species->update(compact('name', 'data'));
 
         return redirect()->route('species.show', compact('species'));
@@ -164,6 +195,11 @@ class SpeciesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $toDelete = Species::find($id);
+        $toDelete->islands()->detach();
+        $toDelete->images()->delete();
+        $toDelete->maps()->delete();
+        $toDelete->delete();
+        return redirect()->route('species.index');
     }
 }

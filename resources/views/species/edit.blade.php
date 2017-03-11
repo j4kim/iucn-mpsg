@@ -3,14 +3,14 @@
 @section('title', 'Edition species ' . $species->name)
 
 @section('content')
-        <form class="form-horizontal" action="{{ route('species.update', $species->id)}}" method="POST" enctype="multipart/form-data">
+        <form id="species-edit-form" class="form-horizontal" action="{{ route('species.update', $species->id)}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="Latin_name">Latin name</label>
                 <div class=" col-sm-5">
-                    <input class="form-control" type="text" id="Latin_name" name="Latin_name" value="{{$species->data["Summary"]["Latin name"]["Name"] or "" }}">
+                    <input class="form-control" type="text" id="Latin_name" name="Latin_name" value="{{$species->data["Summary"]["Latin name"]["Name"] or "" }}" required>
                 </div>
                 <label class="control-label col-sm-1" for="Latin_name_Author">Author</label>
                 <div class=" col-sm-4">
@@ -122,6 +122,12 @@
 
             <button type="submit" class="btn btn-primary">Save</button>
 
+        </form>
+
+        <form id="species-delete-form" action="{{ route('species.destroy', $species->id)}}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
 @endsection
