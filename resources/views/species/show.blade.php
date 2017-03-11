@@ -107,7 +107,9 @@
         </div>
     </div>
 
+    @if(Auth::check())
     <p>
         <a class="btn btn-info" href="{{ route('species.edit', $species->id) }}">edit</a>
     </p>
+    @endif
 @endsection

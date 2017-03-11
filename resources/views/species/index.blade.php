@@ -14,7 +14,9 @@
     @endforeach
     </ul>
 
+    @if(Auth::check())
     <p>
         <a class="btn btn-info" href="{{ route('species.create') }}">new</a>
     </p>
+    @endif
 @endsection

@@ -7,11 +7,17 @@ use App\Island;
 use App\Map;
 use App\Species;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Intervention;
 use Symfony\Component\Debug\Exception\FatalThrowableError;
 
 class SpeciesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -69,6 +75,7 @@ class SpeciesController extends Controller
      */
     public function edit($id)
     {
+        $this->middleware('auth');
         $species = Species::find($id);
         $species_islands = [];
         foreach($species->islands as $spe){

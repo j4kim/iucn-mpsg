@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -70,10 +75,7 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-//        dd($request->all());
         $page->update($request->all());
-//        return view('page.show', ['page'=>$page]);
-//        return redirect($page->title);
         return redirect()->route('pages.show', $page->title);
     }
 

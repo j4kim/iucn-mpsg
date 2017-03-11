@@ -23,4 +23,6 @@ Route::resource('pages', 'PageController', ['except' => [
     'show'
 ]]);
 
+Auth::routes();
+
 Route::get('/{page}', 'PageController@show')->name('pages.show');

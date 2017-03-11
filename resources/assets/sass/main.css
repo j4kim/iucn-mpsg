@@ -90,6 +90,11 @@ a, a:hover{
     margin-top: 10px;
 }
 
+.logout{
+    background-color: #b91818;
+    color:white;
+}
+
 /*
 SPECIES SHOW
 */

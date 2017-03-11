@@ -1,8 +1,4 @@
-total : 32h00
-
-todo :  
-* Authentification
-* Bouton edit que si admin
+total : 34h00
 
 # 11.03.17
 
@@ -15,8 +11,10 @@ todo :
 * Édition des pages
 * Confirmation avant suppression
 * Création d'éspèces
+* Authentification
+* Bouton edit que si admin
 
-5h
+7h
 
 # 10.03.17
 
