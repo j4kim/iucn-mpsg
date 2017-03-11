@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Image;
 use App\Island;
+use App\Map;
 use App\Species;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Intervention;
@@ -51,8 +52,10 @@ class SpeciesController extends Controller
     {
         $species = Species::find($id);
         $imgs = $species->images->all();
+        if(!count($imgs))
+            return view('species.show', compact('species'));
         $header_img = $imgs[array_rand($imgs)];
-        $header_img_url = asset('images/' . $header_img->url);
+        $header_img_url = asset('uploads/images/' . $header_img->url);
         return view('species.show', compact('species', 'header_img_url'));
     }
 
@@ -101,34 +104,49 @@ class SpeciesController extends Controller
         $imgs = ['img'=>[],'map'=>[]];
         foreach($request->all() as $k => $v){
             foreach (['img','map'] as $cat){
+                // si le nom de l'attribut commence par img ou map
                 if(strpos($k, $cat) === 0){
-                    $id = filter_var($k, FILTER_SANITIZE_NUMBER_INT);
-                    $imgs[$cat][$id][$k] = $v;
-                    if($imgs[$cat][$id]["is_new"] = strpos($k, 'new'))
-                        $imgs[$cat][$id]["file"] = $request->file($k);
-                    if(strpos($k, 'title'))
-                        $imgs[$cat][$id]["title"] = $v;
-                    if(strpos($k, 'legend'))
-                        $imgs[$cat][$id]["legend"] = $v;
+                    if(strpos($k, "remove")){
+                        // on doit supprimer une ou plusieurs images ou carte
+                        foreach($v as $id_to_del){
+                            $model = $cat=='img' ? Image::class : Map::class;
+                            $model::find($id_to_del)->delete();
+                        }
+                    }else{
+                        // récupère un entier dans le nom de l'input
+                        $id = filter_var($k, FILTER_SANITIZE_NUMBER_INT);
+                        $imgs[$cat][$id][$k] = $v;
+                        if($imgs[$cat][$id]["is_new"] = strpos($k, 'new'))
+                            $imgs[$cat][$id]["file"] = $request->file($k);
+                        if(strpos($k, 'title'))
+                            $imgs[$cat][$id]["title"] = $v;
+                        if(strpos($k, 'legend'))
+                            $imgs[$cat][$id]["legend"] = $v;
+                    }
                 }
             }
         }
 
-        foreach ($imgs['img'] as $id => $img){
-            if($img['is_new']){
-                $url = $img['title'] . $id . '.' . $img['file']->getClientOriginalExtension();
-                Intervention::make($img['file'])->save("images/$url")
-                    ->widen(480)->save("images/small/$url");
-                Image::create([
-                    'title'=>$img['title'],
-                    'legend'=>$img['legend'],
-                    'url'=>$url,
-                    'species_id'=>$species->id
-                ]);
-            }else{
-                Image::find($id)->update($img);
+        function saveImages($imgs, $model, $folder, $species){
+            foreach ($imgs as $id => $img){
+                if($img['is_new']){
+                    $url = /*$img['title'] . '_' . */ uniqid() . '.' . $img['file']->getClientOriginalExtension();
+                    Intervention::make($img['file'])->save("uploads/$folder/$url")
+                        ->widen(320)->save("uploads/$folder/small/$url");
+                    $model::create([
+                        'title'=>$img['title'],
+                        'legend'=>$img['legend'],
+                        'url'=>$url,
+                        'species_id'=>$species->id
+                    ]);
+                }else{
+                    $model::find($id)->update($img);
+                }
             }
         }
+
+        saveImages($imgs['img'], Image::class, 'images', $species);
+        saveImages($imgs['map'], Map::class, 'maps', $species);
 
         $data["Text"] = $request->Text;
         $data["Additional References"] = $request->Additional_References;

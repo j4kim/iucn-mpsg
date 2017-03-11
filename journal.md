@@ -1,4 +1,11 @@
-total : 27h00
+total : 30h00
+
+# 11.03.17
+
+* Chargement des images version petites
+* Suppression des images et cartes
+
+2h
 
 # 10.03.17
 
@@ -7,7 +14,7 @@ total : 27h00
 * Mise à jour des images existantes
 * Upload des nouvelles images avec version small
 
-4h
+5h
 
 # 06.03.17
 

@@ -10679,9 +10679,19 @@ $(function () {
             reader.readAsDataURL(input.files[0]);
 
             var $clone = $(input).clone();
-            $clone.insertAfter($(input)).removeAttr('id').attr("name", type + "_new_" + n);
+            $clone.insertAfter($(input)).removeAttr('id').attr("name", type + "_new_" + n).attr("id", n);
         }
     }
+
+    $(".form-horizontal").on("click", ".remove", function () {
+        var id = $(this).data("id");
+        var type = $(this).data("type");
+        $(this).parent().parent().remove();
+        // remove potential new file input
+        $("#" + id).remove();
+        var $hid = "<input type='hidden' name='" + type + "_remove[]' value='" + id + "'>";
+        $($hid).insertAfter($('#images-' + type));
+    });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
@@ -10699,7 +10709,11 @@ function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj);
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression, alias5=container.lambda;
 
-  return "<div class=\"image-edit row\">\r\n    <div class=\"col-sm-4\">\r\n        <img src=\""
+  return "<div class=\"image-edit row\" id=\""
+    + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
+    + "-"
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
+    + "-edit\">\r\n    <div class=\"col-sm-4\">\r\n        <img src=\""
     + alias4(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data}) : helper)))
     + "\" width=\"100%\">\r\n    </div>\r\n    <div class=\"col-sm-8\">\r\n        <label class=\"control-label\" for=\"title-"
     + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
@@ -10725,7 +10739,11 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
     + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
     + "\" value=\""
     + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.legend : stack1), depth0))
-    + "\">\r\n        </div>\r\n        <button class=\"btn btn-danger\">Remove</button>\r\n    </div>\r\n</div>";
+    + "\">\r\n        </div>\r\n        <button class=\"btn btn-danger remove\" data-type=\""
+    + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
+    + "\" data-id=\""
+    + alias4(alias5(((stack1 = (depth0 != null ? depth0.img : depth0)) != null ? stack1.id : stack1), depth0))
+    + "\">Remove</button>\r\n    </div>\r\n</div>";
 },"useData":true});
 
 /***/ }),

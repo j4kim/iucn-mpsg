@@ -48,7 +48,18 @@ $(function(){
             reader.readAsDataURL(input.files[0]);
 
             var $clone = $(input).clone();
-            $clone.insertAfter($(input)).removeAttr('id').attr("name", type+"_new_"+n);
+            $clone.insertAfter($(input)).removeAttr('id').attr("name", type+"_new_"+n).attr("id",n);
         }
     }
+
+    $(".form-horizontal").on("click", ".remove", function(){
+        var id = $(this).data("id");
+        var type = $(this).data("type");
+        $(this).parent().parent().remove();
+        // remove potential new file input
+        $("#"+id).remove();
+        var $hid = "<input type='hidden' name='"+type+"_remove[]' value='"+id+"'>";
+        $($hid).insertAfter($('#images-'+type));
+    });
+
 });

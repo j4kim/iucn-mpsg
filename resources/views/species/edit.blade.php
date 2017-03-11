@@ -56,6 +56,7 @@
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox"
+                                       name="islands[]"
                                        value="{{ $island->id }}"
                                        @if(in_array($island->id, $species_islands))
                                            checked
@@ -73,7 +74,7 @@
                 <div class="col-sm-10">
                     <div id="images-img">
                         @foreach($species->images as $img)
-                            @include("species.image", ["url" => asset('images/' . $img["url"]), 'type' => 'img'])
+                            @include("species.image", ["url" => asset('uploads/images/small/' . $img["url"]), 'type' => 'img'])
                         @endforeach
                     </div>
 
@@ -89,12 +90,12 @@
                 <div class="col-sm-10">
                     <div id="images-map">
                         @foreach($species->maps as $img)
-                            @include("species.image", ["url" => asset('images/' . $img["url"]), 'type' => 'map'])
+                            @include("species.image", ["url" => asset('uploads/maps/small/' . $img["url"]), 'type' => 'map'])
                         @endforeach
                     </div>
                     <div>
                         <label for="map-input" class="form-control btn btn-primary">Add map image</label>
-                        <input type="file" id="map-input" accept="image/*" name="map_0" style="display:none">
+                        <input type="file" id="map-input" accept="image/*" style="display:none">
                     </div>
                 </div>
             </div>
