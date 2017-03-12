@@ -182,11 +182,6 @@ MEDIA QUERIES
 SPECIES EDIT
 */
 
-.editor{
-    max-height:50vh;
-    overflow: auto;
-}
-
 .editor h2, .editor h3{
     margin:20px 0 10px 0;
 }

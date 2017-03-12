@@ -1,9 +1,28 @@
 var image_template = require("../../views/species/image.hbs");
 
 $(function(){
+    var options = {
+        modules: {
+            toolbar: [
+                [{ 'header': [2, 3, false] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                ['link','image','video','formula'],
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+                [{ 'color': [] }, { 'background': [] }],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }],
+                [{ 'indent': '-1'}, { 'indent': '+1' }],
+                ['clean']
+            ]
+        },
+        theme: 'snow'
+    };
+
     // Quill makes these two divs editable
-    var quillText = new Quill('#quillText',{theme: 'snow'});
-    var quillAddRef = new Quill('#quillAddRef',{theme: 'snow'});
+    var quillText = new Quill('#quillText', options);
+    var quillAddRef = new Quill('#quillAddRef', options);
 
     var form = document.getElementById('species-edit-form');
     // we need to retrieve the HTML content of the editable inputs before to submit the form

@@ -63,7 +63,7 @@ class SpeciesController extends Controller
         if(!count($imgs))
             return view('species.show', compact('species'));
         $header_img = $imgs[array_rand($imgs)];
-        $header_img_url = asset('uploads/images/' . $header_img->url);
+        $header_img_url = asset('uploads/images/medium/' . $header_img->url);
         return view('species.show', compact('species', 'header_img_url'));
     }
 
@@ -160,6 +160,7 @@ class SpeciesController extends Controller
                 if($img['is_new']){
                     $url = uniqid() . '.' . $img['file']->getClientOriginalExtension();
                     Intervention::make($img['file'])->save("uploads/$folder/$url")
+                        ->widen(1170)->save("uploads/$folder/medium/$url")
                         ->widen(320)->save("uploads/$folder/small/$url");
                     $model::create([
                         'title'=>$img['title'],
