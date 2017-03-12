@@ -1,4 +1,13 @@
-total : 34h00
+total : 36h30
+
+# 12.03.17
+
+* Déploiement
+* Options Quill personnalisés
+* Images enregistrées en résolution médium en plus d'original et small
+* Affichage de la version medium dans l'en-tête d'une fiche
+
+1h
 
 # 11.03.17
 

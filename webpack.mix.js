@@ -16,8 +16,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/page.edit.js', 'public/js')
     .sass('resources/assets/sass/app.scss','public/css')
     .styles([
-        'public/css/app.css',
-        'node_modules/quill/dist/quill.snow.css'
+        'node_modules/quill/dist/quill.snow.css',
+        'public/css/app.css'
     ], 'public/css/all.css')
     .webpackConfig({
         module: {

@@ -13,6 +13,10 @@ header .title-logo img{
     padding: 15px 0 15px 0;
 }
 
+header .title-logo img:hover{
+    background-color: #eee;
+}
+
 .title-logo h1{
     display: none;
 }
@@ -186,10 +190,14 @@ SPECIES EDIT
     margin:20px 0 10px 0;
 }
 
-.editor p{
+.ql-editor p, .ql-editor h2, .ql-editor h3{
     margin:0 0 10px 0;
 }
 
 .image-edit{
     margin: 10px 0 10px 0;
+}
+
+.ql-editor{
+    height: 50vh;
 }
