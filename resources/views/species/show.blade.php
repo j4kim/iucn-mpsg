@@ -88,10 +88,13 @@
             </div>
             <div style="clear: both"></div>
 
-            <div class="references ref-desktop">
-                <h2 style="clear: both">Additionnal references</h2>
-                {!! $species->data["Additional References"] !!}
-            </div>
+            @if($species->data["Additional References"] != "<p><br></p>")
+                <div class="references ref-desktop">
+                    <h2 style="clear: both">Additional references</h2>
+                    {!! $species->data["Additional References"] !!}
+                </div>
+            @endif
+
 
         </aside>
         <main class="col-md-7 col-md-pull-5 col-lg-8 col-lg-pull-4">
@@ -100,12 +103,14 @@
 
     </div>
 
-    <div class="row references ref-mobile">
-        <div class="col-md-12">
-            <h2 style="clear: both">Additionnal references</h2>
-            {!! $species->data["Additional References"] !!}
+    @if($species->data["Additional References"] != "<p><br></p>")
+        <div class="row references ref-mobile">
+            <div class="col-md-12">
+                <h2 style="clear: both">Additional references</h2>
+                {!! $species->data["Additional References"] !!}
+            </div>
         </div>
-    </div>
+    @endif
 
     @if(Auth::check())
     <p>
