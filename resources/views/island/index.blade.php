@@ -3,7 +3,7 @@
 @section('title', 'List of islands')
 
 @section('content')
-    <h1>List of islands</h1>
+    <h1>Species by island</h1>
     <ul>
         @foreach ($islands as $i)
             <li>
