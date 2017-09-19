@@ -199,5 +199,5 @@ SPECIES EDIT
 }
 
 .ql-editor{
-    height: 50vh;
+    max-height: 50vh;
 }
