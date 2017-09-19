@@ -75,7 +75,6 @@ class SpeciesController extends Controller
      */
     public function edit($id)
     {
-        $this->middleware('auth');
         $species = Species::find($id);
         $species_islands = [];
         foreach($species->islands as $spe){
