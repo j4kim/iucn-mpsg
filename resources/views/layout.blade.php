@@ -21,6 +21,13 @@
                 <h1>{{ config('app.name') }}</h1>
             </a>
             <ul class="nav">
+                <li>
+                    <a href="{{ url('/') }}"
+                    {{ Request::path()=="/" ? 'class=active':'' }}
+                    >
+                        Home
+                    </a>
+                </li>
                 @foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact"] as $tab)
                     <li>
                         <a href="{{ url('/' . strtolower($tab)) }}"
