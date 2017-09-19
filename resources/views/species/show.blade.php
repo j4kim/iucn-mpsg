@@ -53,7 +53,11 @@
                     </tr>
                 @endif
                 <tr>
-                    <th>Islands</th>
+                    @if(count($species->islands) === 1)
+                        <th>Island</th>
+                    @else
+                        <th>Islands</th>
+                    @endif
                     <td>
                         <ul class="island-list">
                             @foreach($species->islands as $isl)
