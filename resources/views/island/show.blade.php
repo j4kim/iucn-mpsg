@@ -3,7 +3,7 @@
 @section('title', $name)
 
 @section('content')
-    <h1>{{$name}}</h1>
+    <h1><a href="{{ route('islands.index') }}">Species by island</a> > {{$name}}</h1>
     <ul>
         @foreach($species as $s)
         <li>
@@ -13,5 +13,5 @@
         </li>
         @endforeach
     </ul>
-    <a href="{{ route('islands.index') }}">◀ Species by island</a>
+
 @endsection
