@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
 
 </head>
 <body>
