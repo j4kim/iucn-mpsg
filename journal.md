@@ -3,8 +3,11 @@ total : 36h30
 # 19.09.17
 
 * Commande du nom de domaine iucn-mpsg.org
+* Migration du site web sur le nouveau nom de domaine
+* Restructuration des fichiers mis en ligne dans le dossier storage
+* Bouton home
 
-1h
+4h
 
 # 30.08.17
 
