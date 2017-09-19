@@ -47,7 +47,9 @@ class IslandController extends Controller
     public function show($id)
     {
         $island = Island::find($id);
-        return view('island.show', compact('island'));
+        $name = $island->name;
+        $species = $island->species()->orderBy('name')->get();
+        return view('island.show', compact(['name','species']));
     }
 
     /**

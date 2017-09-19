@@ -1,11 +1,11 @@
 @extends('layout')
 
-@section('title', $island->name)
+@section('title', $name)
 
 @section('content')
-    <h1>{{$island->name}}</h1>
+    <h1>{{$name}}</h1>
     <ul>
-        @foreach($island->species as $s)
+        @foreach($species as $s)
         <li>
             <a  href="{{ route('species.show', $s->id) }}">
                 {{$s->name}}
@@ -13,4 +13,5 @@
         </li>
         @endforeach
     </ul>
+    <a href="{{ route('islands.index') }}">◀ Species by island</a>
 @endsection
