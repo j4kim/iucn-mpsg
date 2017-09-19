@@ -15,7 +15,7 @@ class SpeciesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index','show']]);
+        $this->middleware('auth', ['except' => ['index','show','random']]);
     }
 
     /**
@@ -65,6 +65,11 @@ class SpeciesController extends Controller
         $header_img = $imgs[array_rand($imgs)];
         $header_img_url = asset('uploads/images/medium/' . $header_img->url);
         return view('species.show', compact('species', 'header_img_url'));
+    }
+
+    public function random(){
+        $species = Species::inRandomOrder()->first();
+        return redirect()->route('species.show', $species->id);
     }
 
     /**

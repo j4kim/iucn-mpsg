@@ -17,7 +17,10 @@ Route::get('/', function () {
 });
 
 
+Route::get('species/r', 'SpeciesController@random');
 Route::resource('species', 'SpeciesController');
+
+
 Route::resource('islands', 'IslandController');
 Route::resource('pages', 'PageController', ['except' => [
     'show'
