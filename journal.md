@@ -1,5 +1,17 @@
 total : 36h30
 
+# 19.09.17
+
+* Commande du nom de domaine iucn-mpsg.org
+
+1h
+
+# 30.08.17
+
+* Modifications mineures
+
+1h
+
 # 12.03.17
 
 * Déploiement
@@ -70,8 +82,7 @@ total : 36h30
 * Affichage correct du nom latin et son auteur
 * Avancement dans la page d'édition d'une espèce
 
-3h30
-
+4h
 
 # 23.02.17
 
@@ -87,19 +98,19 @@ total : 36h30
 * Création feuille de style public/css/main.css
 * Création variante du logo IUCN
 
-1h30
+2h
 
 * Affinage styles
 * Image header
 * Aléatoire
 
-3h30
+3h
 
 # 20.02.17
 
 * Modifications vue species.index
 
-30min
+1h
 
 # 19.02.17
 
@@ -108,4 +119,4 @@ total : 36h30
 * Contrôleurs "ressources" pour Island et Species
 * Vues species.index et species.show
 
-4h30
+5h
