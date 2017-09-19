@@ -10,6 +10,7 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 
 </head>

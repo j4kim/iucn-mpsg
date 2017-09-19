@@ -48,7 +48,9 @@ ul.nav li{
 }
 
 .active{
-    background-color: #e3f2f7;
+    /*background-color: #e3f2f7;*/
+    background-color: #0d82ad;
+    color:white;
 }
 
 .title{
