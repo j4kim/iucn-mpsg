@@ -89,13 +89,18 @@
         </main>
 
         <div class="gallery">
-            <h2>Gallery</h2>
-            <div class=" grid">
-                @foreach ($species->images as $img)
-                    <div class="grid-item">
-                        <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
-                    </div>
-                @endforeach
+            {{--<h2>Gallery</h2>--}}
+            <div class="grid">
+                <div class="grid-row">
+                    @foreach ($species->images as $img)
+                        <div class="grid-item">
+                            <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
+                        </div>
+                        @if($loop->iteration % 2 == 0)
+                            </div><div class="grid-row">
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
 
