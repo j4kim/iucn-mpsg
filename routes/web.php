@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('species/r', 'SpeciesController@random');
 Route::resource('species', 'SpeciesController');
+Route::get('species/{species}/pdf', 'SpeciesController@pdf')->name('species.pdf');
+
 
 
 Route::resource('islands', 'IslandController');
