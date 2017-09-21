@@ -5,7 +5,7 @@
 @section('header')
     <div class="container">
         <h1 class="title">{{ $species->name }}</h1>
-        <img src="{{ $header_img_url or "" }}">
+        <img src="{{ $header_img->assetUrl('m') }}">
     </div>
 @endsection
 
@@ -71,9 +71,9 @@
 
             @foreach ($species->maps as $img)
                 <div class="thumbnail">
-                    <a href="{{ asset("uploads/maps/" . $img["url"]) }}">
+                    <a href="{{ $img->assetUrl() }}">
                         <img class="species-map"
-                             src="{{ asset("uploads/maps/small/" . $img["url"]) }}"
+                             src="{{ $img->assetUrl('s') }}"
                              alt="{{ $img["title"] or "Location of " . $species->name }}"
                              title="{{ $img["title"] or "Location of " . $species->name }}">
                     </a>
@@ -84,8 +84,8 @@
             <div class="image-gallery">
                 @foreach ($species->images as $img)
                     <div class="thumbnail species-image">
-                        <a href="{{ asset("uploads/images/" . $img["url"]) }}">
-                            <img src="{{ asset("uploads/images/small/" . $img["url"])  }}" alt="{{ $img["title"] or $species->name }}">
+                        <a href="{{ $img->assetUrl() }}">
+                            <img src="{{ $img->assetUrl('s') }}" alt="{{ $img["title"] or $species->name }}">
                         </a>
                     </div>
                 @endforeach
