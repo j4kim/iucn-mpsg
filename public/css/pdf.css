@@ -1,0 +1,12 @@
+@media print {
+    .not-printed{
+        display: none;
+    }
+}
+
+.explanations{
+    background-color: #333;
+    color: white;
+    font-size: 1.2em;
+    padding: 40px;
+}
