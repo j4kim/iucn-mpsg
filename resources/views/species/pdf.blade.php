@@ -12,7 +12,10 @@
 
 </head>
 <body>
-    <div class="not-printed explanations">To generate a PDF file, simply <a href="javascript:window.print()">Open the print dialog</a> and select "Print to PDF" or equivalent.</div>
+    <div class="not-printed explanations">
+        <p>To generate a PDF file, simply <a href="javascript:window.print()">Open the print dialog</a> and select "Print to PDF" or equivalent.<br>
+        <small><a href="{{ route("species.show", $species->id) }}">back</a></small></p>
+    </div>
     <h1>{{ $species->name }}</h1>
     <div class="row">
         <aside class="col-md-5 col-md-push-7 col-lg-4 col-lg-push-8">
