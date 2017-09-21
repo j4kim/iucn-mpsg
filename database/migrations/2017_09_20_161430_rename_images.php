@@ -65,12 +65,16 @@ class RenameImages extends Migration
                 $path_medium = "uploads/$folder/medium/$new_url";
                 $path_small = "uploads/$folder/small/$new_url";
 
-                Storage::move("$dir/$filename", $path_original);
-                Storage::move("$dir/m_$filename", $path_medium);
-                Storage::move("$dir/s_$filename", $path_small);
+                try{
+                    Storage::move("$dir/$filename", $path_original);
+                    Storage::move("$dir/m_$filename", $path_medium);
+                    Storage::move("$dir/s_$filename", $path_small);
 
-                $img->url = $new_url;
-                $img->save();
+                    $img->url = $new_url;
+                    $img->save();
+                }catch (Exception $e){
+
+                }
             }
         }
 
