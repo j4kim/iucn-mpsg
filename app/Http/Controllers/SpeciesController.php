@@ -15,7 +15,7 @@ class SpeciesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index','show','random']]);
+        $this->middleware('auth', ['except' => ['index','show','random','pdf']]);
     }
 
     /**
@@ -66,6 +66,11 @@ class SpeciesController extends Controller
     public function random(){
         $species = Species::inRandomOrder()->first();
         return redirect()->route('species.show', $species->id);
+    }
+
+    public function pdf($id){
+        $species = Species::find($id);
+        return view('species.pdf', compact('species'));
     }
 
     /**
