@@ -85,4 +85,10 @@ main p{
 
 .grid-item{
     margin: 0px 10px 10px 0px;
+    max-width: calc( 50% - 10px);
+}
+
+.grid-item img{
+    width: 100%;
+    display: block;
 }
