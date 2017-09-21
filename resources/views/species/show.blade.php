@@ -108,14 +108,15 @@
                     {!! $species->data["Additional References"] !!}
                 </div>
             @endif
-
-
         </aside>
+
         <main class="col-md-7 col-md-pull-5 col-lg-8 col-lg-pull-4">
             {!! $species->data["Text"] !!}
         </main>
 
     </div>
+
+    <a href="{{ route('species.pdf', $species->id) }}" style="font-size: 0.8em">Get PDF file</a>
 
     @if($species->data["Additional References"] != "<p><br></p>")
         <div class="row references ref-mobile">
