@@ -10,24 +10,49 @@
 
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
 
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+    <script>
+        $(function() {
+            // init Masonry
+            var $grid = $('.grid').masonry({
+                itemSelector: '.grid-item',
+                percentPosition: true,
+                columnWidth: '.grid-sizer'
+            });
+            // layout Masonry after each image loads
+            $grid.imagesLoaded().progress( function() {
+                $grid.masonry();
+            });
+
+        });
+    </script>
+
 </head>
 <body>
     <div class="not-printed explanations">
-        <p>To generate a PDF file, simply <a href="javascript:window.print()">Open the print dialog</a> and select "Print to PDF" or equivalent.<br>
-        <small><a href="{{ route("species.show", $species->id) }}">back</a></small></p>
+        <div class="container-fluid">
+            <p>To generate a PDF file, simply <a href="javascript:window.print()">Open the print dialog</a> and select "Print to PDF" or equivalent.<br>
+            <small><a href="{{ route("species.show", $species->id) }}">back</a></small></p>
+        </div>
     </div>
-    <h1>{{ $species->name }}</h1>
-    <div class="row">
-        <aside class="col-md-5 col-md-push-7 col-lg-4 col-lg-push-8">
-
+    <div class="container-fluid">
+        <h1>{{ $species->name }}</h1>
+        <div class="summary">
             <h2>Summary</h2>
-            <table class="table">
+            <table class="table table-condensed">
                 <tbody>
                 <?php $summary = $species->data["Summary"]; ?>
-                    <tr>
-                        <th>Latin name</th>
-                        <td><strong><em>{{ $summary['Latin name']['Name'] }}</em></strong> {{ $summary['Latin name']['Author'] }}</td>
-                    </tr>
+                <tr>
+                    <th>Latin name</th>
+                    <td><strong><em>{{ $summary['Latin name']['Name'] }}</em></strong> {{ $summary['Latin name']['Author'] }}</td>
+                </tr>
                 @if(isset($summary['Synonym']))
                     <tr>
                         <th>Synonym</th>
@@ -37,12 +62,12 @@
                 @if(isset($summary['Common name']))
                     <tr>
                         <th>
-                        {{-- Plural if there ara multiple common names -> ie. ther is a semicolon --}}
-                        @if(strpos($summary["Common name"],';'))
-                            Common names
-                        @else
-                            Common name
-                        @endif
+                            {{-- Plural if there ara multiple common names -> ie. ther is a semicolon --}}
+                            @if(strpos($summary["Common name"],';'))
+                                Common names
+                            @else
+                                Common name
+                            @endif
                         </th>
                         <td><strong>{{ $summary['Common name'] }}</strong></td>
                     </tr>
@@ -75,45 +100,37 @@
                 </tr>
                 </tbody>
             </table>
-
             @foreach ($species->maps as $img)
                 <img class="species-map"
                      src="{{ imgUrl($img, 's') }}"
                      alt="{{ $img["title"] or "Location of " . $species->name }}"
                      title="{{ $img["title"] or "Location of " . $species->name }}">
             @endforeach
+        </div>
 
-            <h2>Gallery</h2>
-            <div class="image-gallery">
-                @foreach ($species->images as $img)
-                    <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
-                @endforeach
-            </div>
-            <div style="clear: both"></div>
-
-
-        </aside>
-        <main class="col-md-7 col-md-pull-5 col-lg-8 col-lg-pull-4">
+        <main>
             {!! $species->data["Text"] !!}
         </main>
 
-    </div>
+        <div class="gallery">
+            <h2>Gallery</h2>
+            <div class="image-gallery grid">
+                <div class="grid-sizer"></div>
+                @foreach ($species->images as $img)
+                    <div class="grid-item">
+                        <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
+                    </div>
+                @endforeach
+            </div>
+            <div style="clear: both"></div>
+        </div>
 
-    @if($species->data["Additional References"] != "<p><br></p>")
-        <div class="row references ref-mobile">
-            <div class="col-md-12">
+        @if($species->data["Additional References"] != "<p><br></p>")
+            <div class="references ref-mobile">
                 <h2 style="clear: both">Additional references</h2>
                 {!! $species->data["Additional References"] !!}
             </div>
-        </div>
-    @endif
-
-<script>
-//    if(confirm('To generate a PDF file, simply select "Print to PDF" or equivalent in your browser print dialog.\n\nChoose OK to open the print dialog or CANCEL to return to the species sheet')){
-//        window.print();
-//    }else{
-//        window.history.back();
-//    }
-</script>
+        @endif
+    </div>
 </body>
 </html>

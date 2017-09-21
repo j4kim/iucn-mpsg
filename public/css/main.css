@@ -224,12 +224,9 @@ MEDIA QUERIES
         width: 40%;
     }
 
-
     .grid-sizer,
     .grid-item{
         width: 33%;
-        /*margin-right:2%;*/
-        /*float: left;*/
     }
 }
 

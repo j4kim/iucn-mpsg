@@ -7,6 +7,103 @@
 .explanations{
     background-color: #333;
     color: white;
-    font-size: 1.2em;
+    font-size: 20px;
     padding: 40px;
+}
+
+.breakafter {
+    page-break-after: always;
+}
+
+body{
+    font-size: 9pt;
+}
+h3{
+    font-size: 11pt;
+}
+h2{
+    font-size: 11pt;
+    font-weight: bold;
+}
+h1{
+    font-size: 18pt;
+    background-color: #444 !important;
+    -webkit-print-color-adjust: exact;
+    color: white !important;
+    padding: 10px;
+    text-align: center;
+}
+
+.summary{
+    max-width: 350px;
+    float: left;
+    margin: 0 20px 20px 0;
+    background-color: #eee !important;
+    -webkit-print-color-adjust: exact;
+    padding: 10px;
+}
+
+.summary .table{
+    background-color: #eee !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.summary ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.summary img{
+    width: 100%;
+}
+
+.references{
+    font-size: 0.8em;
+    padding:5px;
+    margin-bottom:20px;
+    margin-top: 10px;
+
+    background-color: #eee !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.references p{
+    margin: 0 0 2px;
+}
+
+main p{
+    text-align: justify;
+}
+
+
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.grid{
+    margin-right: -5px;
+}
+
+.grid-sizer,
+.grid-item {
+    width: 50%;
+    padding: 0 5px 5px 0;
+}
+.grid-item {
+    float: left;
+}
+
+.grid-item img {
+    display: block;
+    max-width: 100%;
+}
+
+@media (min-width: 900px){
+    .grid-sizer,
+    .grid-item {
+        width: 33%;
+    }
 }

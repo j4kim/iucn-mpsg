@@ -89,8 +89,8 @@
 
             <h2>Gallery</h2>
             <div class="image-gallery grid">
+                <div class="grid-sizer"></div>
                 @foreach ($species->images as $img)
-                    <div class="grid-sizer"></div>
                     <div class="species-image grid-item">
                         <a href="{{ imgUrl($img) }}"
                            data-width="{{ $img->width }}"
@@ -119,7 +119,7 @@
 
     </div>
 
-    <a href="{{ route('species.pdf', $species->id) }}" style="font-size: 0.8em">Get PDF file</a>
+    <a href="{{ route('species.pdf', $species->id) }}" style="font-size: 0.8em">Printable version</a>
 
     @if($species->data["Additional References"] != "<p><br></p>")
         <div class="row references ref-mobile">
