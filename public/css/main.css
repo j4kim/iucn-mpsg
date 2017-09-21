@@ -159,20 +159,36 @@ h2{
     padding: 0;
 }
 
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.grid{
+    margin-right: -5px;
+}
 
-/*
-MEDIA QUERIES
-*/
-
-.image-gallery .species-image{
-    width: 48%;
-    margin-right:2%;
+.grid-sizer,
+.grid-item {
+    width: 50%;
+    padding: 0 5px 5px 0;
+}
+.grid-item {
     float: left;
+}
+
+.grid-item img {
+    display: block;
+    max-width: 100%;
 }
 
 .ref-mobile{
     display: none;
 }
+
+/*
+MEDIA QUERIES
+*/
 
 @media (max-width: 992px){
 
@@ -191,12 +207,21 @@ MEDIA QUERIES
         width: 60%;
     }
 
-    .image-gallery .species-image{
-        width: 31%;
-        margin-right:2%;
-        float: left;
+    .grid-sizer,
+    .grid-item{
+        width: 33%;
+        /*margin-right:2%;*/
+        /*float: left;*/
     }
-    }
+}
+
+/*@media (max-width: 400px){*/
+    /*.grid-item{*/
+        /*width: 100%;*/
+        /*!*margin-right:2%;*!*/
+        /*!*float: left;*!*/
+    /*}*/
+/*}*/
 
 /*
 SPECIES EDIT

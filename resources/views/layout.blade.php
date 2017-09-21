@@ -14,6 +14,8 @@
 
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
 
+    <script src="{{ asset('js/app.js') }}"></script>
+
     @yield('head')
 
 </head>
@@ -66,7 +68,6 @@
     <footer>
         IUCN's Top 50 Mediterranean Island Plants - 2017 - Joaquim Perez
     </footer>
-    <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

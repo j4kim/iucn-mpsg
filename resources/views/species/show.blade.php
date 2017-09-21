@@ -70,7 +70,7 @@
             </table>
 
             @foreach ($species->maps as $img)
-                <div class="thumbnail species-map">
+                <div class="species-map">
                     <a href="{{ $img->assetUrl() }}"
                        data-width="{{ $img->width }}"
                        data-height="{{ $img->height }}"
@@ -86,9 +86,10 @@
             @endforeach
 
             <h2>Gallery</h2>
-            <div class="image-gallery">
+            <div class="image-gallery grid">
                 @foreach ($species->images as $img)
-                    <div class="thumbnail species-image">
+                    <div class="grid-sizer"></div>
+                    <div class="species-image grid-item">
                         <a href="{{ $img->assetUrl() }}"
                            data-width="{{ $img->width }}"
                            data-height="{{ $img->height }}"
@@ -142,10 +143,12 @@
     <link rel="stylesheet" href="{{ asset('css/photoswipe/default-skin/default-skin.css') }}">
     <script src="{{ asset('js/photoswipe/photoswipe.js') }}"></script>
     <script src="{{ asset('js/photoswipe/photoswipe-ui-default.js') }}"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 @endsection
 
 
 @section('scripts')
-
     <script src="{{ asset('js/species.show.js') }}"></script>
 @endsection
