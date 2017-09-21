@@ -74,7 +74,7 @@
                 <div class="col-sm-10">
                     <div id="images-img">
                         @foreach($species->images as $img)
-                            @include("species.image", ["url" => asset('uploads/images/small/' . $img["url"]), 'type' => 'img'])
+                            @include("species.image", ["url" => $img->assetUrl('s'), 'type' => 'img'])
                         @endforeach
                     </div>
 
@@ -90,7 +90,7 @@
                 <div class="col-sm-10">
                     <div id="images-map">
                         @foreach($species->maps as $img)
-                            @include("species.image", ["url" => asset('uploads/maps/small/' . $img["url"]), 'type' => 'map'])
+                            @include("species.image", ["url" => $img->assetUrl('s'), 'type' => 'map'])
                         @endforeach
                     </div>
                     <div>
