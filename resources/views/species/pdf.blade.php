@@ -10,30 +10,6 @@
 
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
 
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-
-    <script>
-        $(function() {
-            // init Masonry
-            var $grid = $('.grid').masonry({
-                itemSelector: '.grid-item',
-                percentPosition: true,
-                columnWidth: '.grid-sizer'
-            });
-            // layout Masonry after each image loads
-            $grid.imagesLoaded().progress( function() {
-                $grid.masonry();
-            });
-
-        });
-    </script>
-
 </head>
 <body>
     <div class="not-printed explanations">
