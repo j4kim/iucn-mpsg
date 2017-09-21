@@ -117,8 +117,24 @@
     @endif
 
     @if(Auth::check())
-    <p>
-        <a class="btn btn-info" href="{{ route('species.edit', $species->id) }}">edit</a>
-    </p>
+        <p>
+            <a class="btn btn-info" href="{{ route('species.edit', $species->id) }}">edit</a>
+        </p>
     @endif
+
+    @include("gallery")
+@endsection
+
+
+@section('head')
+    <link rel="stylesheet" href="{{ asset('css/photoswipe/photoswipe.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/photoswipe/default-skin/default-skin.css') }}">
+    <script src="{{ asset('js/photoswipe/photoswipe.js') }}"></script>
+    <script src="{{ asset('js/photoswipe/photoswipe-ui-default.js') }}"></script>
+@endsection
+
+
+@section('scripts')
+
+    <script src="{{ asset('js/species.show.js') }}"></script>
 @endsection
