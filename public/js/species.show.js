@@ -23,7 +23,7 @@ $(function() {
                 index : $(this).data("index")
             });
             pswp.listen('afterChange', function() {
-                $(".pswp__caption__center").html(" | <small>"+ pswp.currItem.legend +"</small>");
+                $(".pswp__caption__center").append(" | <small>"+ pswp.currItem.legend +"</small>");
             });
             pswp.init();
             return false;
