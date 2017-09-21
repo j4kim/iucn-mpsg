@@ -25,15 +25,15 @@ class Image extends Model
         return "uploads/species/" . $this->species->id . "/images/";
     }
 
-    protected function originalUrl(){
+    public function originalUrl(){
         return $this->baseUrl() . $this->url;
     }
 
-    protected function mediumUrl(){
+    public function mediumUrl(){
         return $this->baseUrl() . "m_" . $this->url;
     }
 
-    protected function smallUrl(){
+    public function smallUrl(){
         return $this->baseUrl() . "s_" . $this->url;
     }
 
@@ -43,5 +43,12 @@ class Image extends Model
             case "s": return asset($this->smallUrl());
             default: return asset($this->originalUrl());
         }
+    }
+
+    public function createFilename($species_name, $folder, $ext){
+        $date = str_slug($this->created_at);
+        $name = str_slug($species_name);
+        $opt = $folder == "maps" ? "_map" : "";
+        return $this->id . '_' . $date . '_' . $name . $opt . '.' . $ext;
     }
 }

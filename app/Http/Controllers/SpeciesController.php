@@ -123,6 +123,8 @@ class SpeciesController extends Controller
             $species->islands()->attach($request->islands);
         }
 
+        // todo: tout refaire et simplifier, ça va pas du tout...
+
         /*
          * Images and Maps
          */
@@ -143,7 +145,7 @@ class SpeciesController extends Controller
                         // récupère un entier dans le nom de l'input
                         $id = filter_var($k, FILTER_SANITIZE_NUMBER_INT);
                         $imgs[$cat][$id][$k] = $v;
-                        if($imgs[$cat][$id]["is_new"] = strpos($k, 'new'))
+                            if($imgs[$cat][$id]["is_new"] = strpos($k, 'new'))
                             $imgs[$cat][$id]["file"] = $request->file($k);
                         if(strpos($k, 'title'))
                             $imgs[$cat][$id]["title"] = $v;
@@ -158,16 +160,7 @@ class SpeciesController extends Controller
         function saveImages($imgs, $model, $folder, $species){
             foreach ($imgs as $id => $img){
                 if($img['is_new']){
-                    $url = uniqid() . '.' . $img['file']->getClientOriginalExtension();
-                    Intervention::make($img['file'])->save("uploads/$folder/$url")
-                        ->widen(1170)->save("uploads/$folder/medium/$url")
-                        ->widen(320)->save("uploads/$folder/small/$url");
-                    $model::create([
-                        'title'=>$img['title'],
-                        'legend'=>$img['legend'],
-                        'url'=>$url,
-                        'species_id'=>$species->id
-                    ]);
+                    $species->addImage($folder, $img);
                 }else{
                     $model::find($id)->update($img);
                 }
