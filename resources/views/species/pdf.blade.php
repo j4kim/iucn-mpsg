@@ -65,7 +65,7 @@
                     <td>
                         <ul class="island-list">
                             @foreach($species->islands as $isl)
-                                <li><a href="{{ route('islands.show', $isl->id) }}"><strong>{{ $isl->name }}</strong> ({{ $isl->country }})</a></li>
+                                <li><strong>{{ $isl->name }}</strong> ({{ $isl->country }})</li>
                             @endforeach
                         </ul>
                     </td>
@@ -74,34 +74,19 @@
             </table>
 
             @foreach ($species->maps as $img)
-                <div class="thumbnail">
-                    <a href="{{ asset("uploads/maps/" . $img["url"]) }}">
-                        <img class="species-map"
-                             src="{{ asset("uploads/maps/small/" . $img["url"]) }}"
-                             alt="{{ $img["title"] or "Location of " . $species->name }}"
-                             title="{{ $img["title"] or "Location of " . $species->name }}">
-                    </a>
-                </div>
+                <img class="species-map"
+                     src="{{ $img->assetUrl('s') }}"
+                     alt="{{ $img["title"] or "Location of " . $species->name }}"
+                     title="{{ $img["title"] or "Location of " . $species->name }}">
             @endforeach
 
             <h2>Gallery</h2>
             <div class="image-gallery">
                 @foreach ($species->images as $img)
-                    <div class="thumbnail species-image">
-                        <a href="{{ asset("uploads/images/" . $img["url"]) }}">
-                            <img src="{{ asset("uploads/images/small/" . $img["url"])  }}" alt="{{ $img["title"] or $species->name }}">
-                        </a>
-                    </div>
+                    <img src="{{ $img->assetUrl('s')  }}" alt="{{ $img["title"] or $species->name }}">
                 @endforeach
             </div>
             <div style="clear: both"></div>
-
-            @if($species->data["Additional References"] != "<p><br></p>")
-                <div class="references ref-desktop">
-                    <h2 style="clear: both">Additional references</h2>
-                    {!! $species->data["Additional References"] !!}
-                </div>
-            @endif
 
 
         </aside>
