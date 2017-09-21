@@ -70,9 +70,9 @@
             </table>
 
             @foreach ($species->maps as $img)
-                <div class="thumbnail">
-                    <a href="{{ $img->assetUrl() }}">
-                        <img class="species-map"
+                <div class="thumbnail species-map">
+                    <a href="{{ $img->assetUrl() }}" data-width="{{ $img->width }}" data-height="{{ $img->height }}">
+                        <img
                              src="{{ $img->assetUrl('s') }}"
                              alt="{{ $img["title"] or "Location of " . $species->name }}"
                              title="{{ $img["title"] or "Location of " . $species->name }}">
