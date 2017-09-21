@@ -78,7 +78,7 @@
 
             @foreach ($species->maps as $img)
                 <img class="species-map"
-                     src="{{ $img->assetUrl('s') }}"
+                     src="{{ imgUrl($img, 's') }}"
                      alt="{{ $img["title"] or "Location of " . $species->name }}"
                      title="{{ $img["title"] or "Location of " . $species->name }}">
             @endforeach
@@ -86,7 +86,7 @@
             <h2>Gallery</h2>
             <div class="image-gallery">
                 @foreach ($species->images as $img)
-                    <img src="{{ $img->assetUrl('s')  }}" alt="{{ $img["title"] or $species->name }}">
+                    <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
                 @endforeach
             </div>
             <div style="clear: both"></div>

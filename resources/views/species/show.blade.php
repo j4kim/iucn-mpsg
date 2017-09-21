@@ -5,7 +5,7 @@
 @section('header')
     <div class="container">
         <h1 class="title">{{ $species->name }}</h1>
-        <img src="{{ $header_img->assetUrl('m') }}">
+        <img src="{{ imgUrl($header_img, 'm') }}">
     </div>
 @endsection
 
@@ -72,14 +72,14 @@
             <div class="maps-container">
                 @foreach ($species->maps as $img)
                     <div class="species-map">
-                        <a href="{{ $img->assetUrl() }}"
+                        <a href="{{ imgUrl($img) }}"
                            data-width="{{ $img->width }}"
                            data-height="{{ $img->height }}"
                            data-title="{{ $img["title"] }}"
                            data-legend="{{ $img["legend"] }}"
                         >
                             <img
-                                    src="{{ $img->assetUrl('s') }}"
+                                    src="{{ imgUrl($img, 's') }}"
                                     alt="{{ $img["title"] or "Location of " . $species->name }}"
                                     title="{{ $img["title"] or "Location of " . $species->name }}">
                         </a>
@@ -92,13 +92,13 @@
                 @foreach ($species->images as $img)
                     <div class="grid-sizer"></div>
                     <div class="species-image grid-item">
-                        <a href="{{ $img->assetUrl() }}"
+                        <a href="{{ imgUrl($img) }}"
                            data-width="{{ $img->width }}"
                            data-height="{{ $img->height }}"
                            data-title="{{ $img["title"] }}"
                            data-legend="{{ $img["legend"] }}"
                         >
-                            <img src="{{ $img->assetUrl('s') }}" alt="{{ $img["title"] or $species->name }}">
+                            <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
                         </a>
                     </div>
                 @endforeach
