@@ -159,6 +159,18 @@ h2{
     padding: 0;
 }
 
+.maps-container{
+    text-align: center;
+}
+
+.species-map{
+    margin: 5px;
+}
+
+.species-map img{
+    /*width: 100%;*/
+}
+
 .grid:after {
     content: '';
     display: block;
@@ -204,8 +216,14 @@ MEDIA QUERIES
 @media (min-width: 450px) and (max-width: 992px){
 
     .species-map{
-        width: 60%;
+        width: 50%;
+        display: inline;
     }
+
+    .species-map img{
+        width: 40%;
+    }
+
 
     .grid-sizer,
     .grid-item{
@@ -215,13 +233,15 @@ MEDIA QUERIES
     }
 }
 
-/*@media (max-width: 400px){*/
+@media (max-width: 450px){
     /*.grid-item{*/
         /*width: 100%;*/
-        /*!*margin-right:2%;*!*/
-        /*!*float: left;*!*/
     /*}*/
-/*}*/
+
+    .species-map img{
+        width: 100%;
+    }
+}
 
 /*
 SPECIES EDIT

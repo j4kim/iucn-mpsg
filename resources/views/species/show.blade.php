@@ -69,21 +69,23 @@
                 </tbody>
             </table>
 
-            @foreach ($species->maps as $img)
-                <div class="species-map">
-                    <a href="{{ $img->assetUrl() }}"
-                       data-width="{{ $img->width }}"
-                       data-height="{{ $img->height }}"
-                       data-title="{{ $img["title"] }}"
-                       data-legend="{{ $img["legend"] }}"
-                    >
-                        <img
-                             src="{{ $img->assetUrl('s') }}"
-                             alt="{{ $img["title"] or "Location of " . $species->name }}"
-                             title="{{ $img["title"] or "Location of " . $species->name }}">
-                    </a>
-                </div>
-            @endforeach
+            <div class="maps-container">
+                @foreach ($species->maps as $img)
+                    <div class="species-map">
+                        <a href="{{ $img->assetUrl() }}"
+                           data-width="{{ $img->width }}"
+                           data-height="{{ $img->height }}"
+                           data-title="{{ $img["title"] }}"
+                           data-legend="{{ $img["legend"] }}"
+                        >
+                            <img
+                                    src="{{ $img->assetUrl('s') }}"
+                                    alt="{{ $img["title"] or "Location of " . $species->name }}"
+                                    title="{{ $img["title"] or "Location of " . $species->name }}">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
 
             <h2>Gallery</h2>
             <div class="image-gallery grid">
