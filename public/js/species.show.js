@@ -10,17 +10,14 @@ $(function() {
             w: $(elem).data("width"),
             h: $(elem).data("height")
         });
+        $(elem).data("index", index);
     });
 
-// define options (if needed)
-    var options = {
-        // optionName: 'option value'
-        // for example:
-        index: 0 // start at first slide
-    };
-
-// Initializes and opens PhotoSwipe
-    var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
+    $(".species-image > a").click(function(e){
+        new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+            index : $(this).data("index")
+        }).init();
+        return false;
+    });
 
 });
