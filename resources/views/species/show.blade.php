@@ -84,7 +84,7 @@
             <div class="image-gallery">
                 @foreach ($species->images as $img)
                     <div class="thumbnail species-image">
-                        <a href="{{ $img->assetUrl() }}">
+                        <a href="{{ $img->assetUrl() }}" data-width="{{ $img->width }}" data-height="{{ $img->height }}">
                             <img src="{{ $img->assetUrl('s') }}" alt="{{ $img["title"] or $species->name }}">
                         </a>
                     </div>
