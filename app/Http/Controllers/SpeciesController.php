@@ -59,12 +59,8 @@ class SpeciesController extends Controller
     public function show($id)
     {
         $species = Species::find($id);
-        $imgs = $species->images->all();
-        if(!count($imgs))
-            return view('species.show', compact('species'));
-        $header_img = $imgs[array_rand($imgs)];
-        $header_img_url = asset('uploads/images/medium/' . $header_img->url);
-        return view('species.show', compact('species', 'header_img_url'));
+        $header_img = $species->images()->inRandomOrder()->first();
+        return view('species.show', compact('species', 'header_img'));
     }
 
     public function random(){
