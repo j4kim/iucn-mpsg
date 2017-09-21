@@ -71,7 +71,12 @@
 
             @foreach ($species->maps as $img)
                 <div class="thumbnail species-map">
-                    <a href="{{ $img->assetUrl() }}" data-width="{{ $img->width }}" data-height="{{ $img->height }}">
+                    <a href="{{ $img->assetUrl() }}"
+                       data-width="{{ $img->width }}"
+                       data-height="{{ $img->height }}"
+                       data-title="{{ $img["title"] }}"
+                       data-legend="{{ $img["legend"] }}"
+                    >
                         <img
                              src="{{ $img->assetUrl('s') }}"
                              alt="{{ $img["title"] or "Location of " . $species->name }}"
@@ -84,7 +89,12 @@
             <div class="image-gallery">
                 @foreach ($species->images as $img)
                     <div class="thumbnail species-image">
-                        <a href="{{ $img->assetUrl() }}" data-width="{{ $img->width }}" data-height="{{ $img->height }}">
+                        <a href="{{ $img->assetUrl() }}"
+                           data-width="{{ $img->width }}"
+                           data-height="{{ $img->height }}"
+                           data-title="{{ $img["title"] }}"
+                           data-legend="{{ $img["legend"] }}"
+                        >
                             <img src="{{ $img->assetUrl('s') }}" alt="{{ $img["title"] or $species->name }}">
                         </a>
                     </div>
