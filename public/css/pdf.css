@@ -75,3 +75,14 @@ h1{
 main p{
     text-align: justify;
 }
+
+.grid{
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+.grid-item{
+    margin: 0px 10px 10px 0px;
+}

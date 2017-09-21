@@ -90,15 +90,13 @@
 
         <div class="gallery">
             <h2>Gallery</h2>
-            <div class="image-gallery grid">
-                <div class="grid-sizer"></div>
+            <div class=" grid">
                 @foreach ($species->images as $img)
                     <div class="grid-item">
                         <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
                     </div>
                 @endforeach
             </div>
-            <div style="clear: both"></div>
         </div>
 
         @if($species->data["Additional References"] != "<p><br></p>")
