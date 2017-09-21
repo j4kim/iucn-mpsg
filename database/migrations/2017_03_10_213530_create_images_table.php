@@ -20,7 +20,6 @@ class CreateImagesTable extends Migration
             $table->text('title')->nullable();
             $table->text('legend')->nullable();
             $table->text('url');
-//            $table->text('small')->nullable();
 
             $table->integer('species_id')->unsigned();
 
