@@ -76,37 +76,43 @@
                 </tr>
                 </tbody>
             </table>
-            @foreach ($species->maps as $img)
-                <img class="species-map"
-                     src="{{ imgUrl($img, 's') }}"
-                     alt="{{ $img["title"] or "Location of " . $species->name }}"
-                     title="{{ $img["title"] or "Location of " . $species->name }}">
-            @endforeach
+            <div class="maps">
+                @foreach ($species->maps as $img)
+                    <figure>
+                        <img class="species-map"
+                             src="{{ imgUrl($img, 's') }}"
+                             alt="{{ $img["title"] or "Location of " . $species->name }}"
+                             title="{{ $img["title"] or "Location of " . $species->name }}">
+                        <figcaption>
+                            {{ $img["title"] }}
+                            @if ($img["legend"])
+                                | <small>{{ $img["legend"] }}</small>
+                            @endif
+                        </figcaption>
+                    </figure>
+                @endforeach
+            </div>
         </div>
+
+        @foreach ($species->images as $img)
+            <figure class="species-image">
+                <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
+                <figcaption>
+                    {{ $img["title"] }}
+                    @if ($img["legend"])
+                        | <small>{{ $img["legend"] }}</small>
+                    @endif
+                </figcaption>
+            </figure>
+        @endforeach
 
         <main>
             {!! $species->data["Text"] !!}
         </main>
 
-        <div class="gallery">
-            {{--<h2>Gallery</h2>--}}
-            <div class="grid">
-                <div class="grid-row">
-                    @foreach ($species->images as $img)
-                        <div class="grid-item">
-                            <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">
-                        </div>
-                        @if($loop->iteration % 2 == 0)
-                            </div><div class="grid-row">
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
         @if($species->data["Additional References"] != "<p><br></p>")
             <div class="references ref-mobile">
-                <h2 style="clear: both">Additional references</h2>
+                <h2>Additional references</h2>
                 {!! $species->data["Additional References"] !!}
             </div>
         @endif
