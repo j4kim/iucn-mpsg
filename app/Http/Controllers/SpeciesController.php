@@ -108,8 +108,11 @@ class SpeciesController extends Controller
 
         $data['Summary']['Latin name'] = ["Name" => $name, "Author" => $request->Latin_name_Author];
 
-        if(!empty($request->Synonym))
-            $data['Summary']['Synonym'] = ["Name" => $request->Synonym, "Author" => $request->Synonym_Author];
+        $data['Summary']['Synonyms'] = [];
+        foreach($request->Synonyms as $i => $syn){
+            if($syn)
+                $data['Summary']['Synonyms'][] = ["Name" => $syn, "Author" => $request->Synonym_Authors[$i]];
+        }
 
         $keys = ['Common name', 'Family', 'Status'];
         foreach($keys as $key){

@@ -10706,6 +10706,13 @@ $(function () {
             e.preventDefault();
         }
     });
+
+    $("#add-syn-btn").click(function (e) {
+        var p = $(this).parent();
+        var syn_div = p.prev();
+        syn_div.clone().insertBefore(p).find("input").val("");
+        return false;
+    });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 

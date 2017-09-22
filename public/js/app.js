@@ -10361,8 +10361,6 @@ __webpack_require__(11);
 
 Quill = __webpack_require__(32);
 
-// PhotoSwipe = require('photoswipe');
-
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {

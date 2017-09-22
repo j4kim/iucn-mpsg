@@ -18,16 +18,19 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="Synonym">Synonym</label>
-                <div class=" col-sm-5">
-                    <input class="form-control" type="text" id="Synonym" name="Synonym" value="{{ $species->data["Summary"]["Synonym"]["Name"] or "" }}">
+            @foreach($species->data["Summary"]["Synonyms"] as $syn)
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Synonym</label>
+                    <div class=" col-sm-5">
+                        <input class="form-control" type="text" name="Synonyms[]" value="{{ $syn["Name"] or "" }}">
+                    </div>
+                    <label class="control-label col-sm-1">Author</label>
+                    <div class=" col-sm-4">
+                        <input class="form-control" type="text" name="Synonym_Authors[]" value="{{$syn["Author"] or ""}}">
+                    </div>
                 </div>
-                <label class="control-label col-sm-1" for="Synonym_Author">Author</label>
-                <div class=" col-sm-4">
-                    <input class="form-control" type="text" id="Synonym_Author" name="Synonym_Author" value="{{$species->data["Summary"]["Synonym"]["Author"] or ""}}">
-                </div>
-            </div>
+            @endforeach
+            <p class="help-block  col-sm-offset-2"><a href="#" id="add-syn-btn">Add synonym</a></p>
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="Common_name" id="Common_name_label">Common name</label>

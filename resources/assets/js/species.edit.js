@@ -86,6 +86,12 @@ $(function(){
         if(!confirm("Delete this species ?")){
             e.preventDefault();
         }
-    })
-
+    });
+    
+    $("#add-syn-btn").click(function(e){
+        var p = $(this).parent();
+        var syn_div = p.prev();
+        syn_div.clone().insertBefore(p).find("input").val("");
+        return false;
+    });
 });
