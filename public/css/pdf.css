@@ -25,7 +25,7 @@ h2{
     font-size: 11pt;
     font-weight: bold;
 }
-h1{
+h1.species-header{
     font-size: 18pt;
     background-color: #444 !important;
     -webkit-print-color-adjust: exact;
@@ -84,4 +84,19 @@ main p{
     clear: both;
     float: right;
     margin: 0 0 20px 20px;
+}
+
+.break-after{
+    page-break-after: always;
+}
+.break-before{
+    page-break-before: always;
+}
+
+.first-page {
+    text-align: center;
+    margin: 100px;
+}
+.first-page img{
+    display: initial;
 }

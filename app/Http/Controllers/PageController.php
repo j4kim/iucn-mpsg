@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use App\Species;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -88,5 +89,9 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         //
+    }
+
+    public function book(){
+        return view('book', ['species' => Species::all(), 'pages' => Page::all()]);
     }
 }
