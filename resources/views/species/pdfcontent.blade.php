@@ -98,3 +98,11 @@
 @endif
 
 <div style="clear:both;"></div>
+
+<script>
+    $(function(){
+        var _2eH2 = $("main h2")[1];
+        var photos = $(".species-image");
+        photos.insertAfter(_2eH2);
+    });
+</script>

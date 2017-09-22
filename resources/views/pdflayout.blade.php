@@ -10,6 +10,8 @@
 
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
 
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </head>
 <body>
     <div class="not-printed explanations">
