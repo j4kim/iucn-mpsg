@@ -21,10 +21,22 @@
                         <th>Latin name</th>
                         <td><strong><em>{{ $summary['Latin name']['Name'] }}</em></strong> {{ $summary['Latin name']['Author'] }}</td>
                     </tr>
-                @if(isset($summary['Synonym']))
+                @if(count($summary['Synonyms']))
                     <tr>
-                        <th>Synonym</th>
-                        <td><strong><em>{{ $summary['Synonym']['Name'] }}</em></strong> {{ $summary['Synonym']['Author'] }}</td>
+                        <th>
+                            @if(count($summary["Synonyms"]) > 1)
+                                Synonyms
+                            @else
+                                Synonym
+                            @endif
+                        </th>
+                        <td>
+                            <ul class="synonyms-list">
+                                @foreach($summary["Synonyms"] as $syn)
+                                    <li><strong><em>{{ $syn['Name'] }}</em></strong> {{ $syn['Author'] }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
                     </tr>
                 @endif
                 @if(isset($summary['Common name']))
