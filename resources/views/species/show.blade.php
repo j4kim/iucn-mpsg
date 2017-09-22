@@ -119,8 +119,6 @@
 
     </div>
 
-    <a href="{{ route('species.pdf', $species->id) }}" style="font-size: 0.8em">Printable version</a>
-
     @if($species->data["Additional References"] != "<p><br></p>")
         <div class="row references ref-mobile">
             <div class="col-md-12">
@@ -129,6 +127,10 @@
             </div>
         </div>
     @endif
+
+
+
+    <a href="{{ route('species.pdf', $species->id) }}" style="font-size: 0.8em">Printable version</a>
 
     @if(Auth::check())
         <p>
