@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Intervention\Image\ImageManagerStatic as Intervention;
 
 class AddDimToImages extends Migration
 {
@@ -24,15 +23,7 @@ class AddDimToImages extends Migration
             }
 
             foreach ($imgs as $img) {
-                $url = public_path()."/uploads/$folder/$img->url";
-                echo($url);
-                $resource = Intervention::make($url);
-                $w = $resource->width();
-                $h = $resource->height();
-                echo("image $img->url : w:$w h:$h\r\n");
-                $img->width = $w;
-                $img->height = $h;
-                $img->save();
+                $img->writeDimensions();
             }
 
         }

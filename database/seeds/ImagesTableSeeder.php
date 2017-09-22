@@ -40,8 +40,10 @@ class ImagesTableSeeder extends Seeder
                 "species_id"=>2
             ]
         ];
+
         foreach($images as $image){
-            Image::create($image);
+            $img = Image::create($image);
+            $img->writeDimensions();
         }
     }
 }

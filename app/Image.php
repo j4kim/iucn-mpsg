@@ -4,6 +4,7 @@ namespace App;
 
 use ErrorException;
 use Illuminate\Database\Eloquent\Model;
+use Intervention\Image\ImageManagerStatic as Intervention;
 
 class Image extends Model
 {
@@ -50,5 +51,13 @@ class Image extends Model
         $name = str_slug($species_name);
         $opt = $folder == "maps" ? "_map" : "";
         return $this->id . '_' . $date . '_' . $name . $opt . '.' . $ext;
+    }
+
+    public function writeDimensions(){
+        $url = public_path($this->originalUrl());
+        $resource = Intervention::make($url);
+        $this->width = $resource->width();
+        $this->height = $resource->height();
+        $this->save();
     }
 }

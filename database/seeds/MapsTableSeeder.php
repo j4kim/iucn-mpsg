@@ -26,7 +26,8 @@ class MapsTableSeeder extends Seeder
             ]
         ];
         foreach($images as $image){
-            Map::create($image);
+            $img = Map::create($image);
+            $img->writeDimensions();
         }
     }
 }

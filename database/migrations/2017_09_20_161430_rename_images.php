@@ -78,7 +78,7 @@ class RenameImages extends Migration
             }
         }
 
-        derename_demove(\App\Image::all(), "images");
-        derename_demove(\App\Map::all(), "maps");
+//        derename_demove(\App\Image::all(), "images");
+//        derename_demove(\App\Map::all(), "maps");
     }
 }
