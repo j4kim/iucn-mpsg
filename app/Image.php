@@ -21,7 +21,7 @@ class Image extends Model
         return $this->belongsTo('App\Species');
     }
 
-    protected function baseUrl(){
+    public function baseUrl(){
         return "uploads/species/" . $this->species->id . "/images/";
     }
 

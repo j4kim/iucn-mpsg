@@ -14,7 +14,7 @@ class Map extends Image
         $this->delete();
     }
 
-    protected function baseUrl(){
+    public function baseUrl(){
         return "uploads/species/" . $this->species->id . "/maps/";
     }
 }

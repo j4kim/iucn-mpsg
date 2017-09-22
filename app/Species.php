@@ -43,6 +43,11 @@ class Species extends Model
         $newImage->height = $imageSource->height();
         $newImage->save();
 
+        $save_path = $newImage->baseUrl();
+        if (!file_exists($save_path)) {
+            mkdir($save_path, 666, true);
+        }
+
         $imageSource->save($newImage->originalUrl())
             ->widen(1170)->save($newImage->mediumUrl())
             ->widen(320)->save($newImage->smallUrl());
