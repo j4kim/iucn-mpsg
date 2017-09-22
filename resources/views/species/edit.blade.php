@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            @foreach($species->data["Summary"]["Synonyms"] as $syn)
+            @forelse($species->data["Summary"]["Synonyms"] as $syn)
                 <div class="form-group">
                     <label class="control-label col-sm-2">Synonym</label>
                     <div class=" col-sm-5">
@@ -29,7 +29,18 @@
                         <input class="form-control" type="text" name="Synonym_Authors[]" value="{{$syn["Author"] or ""}}">
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Synonym</label>
+                    <div class=" col-sm-5">
+                        <input class="form-control" type="text" name="Synonyms[]" value="">
+                    </div>
+                    <label class="control-label col-sm-1">Author</label>
+                    <div class=" col-sm-4">
+                        <input class="form-control" type="text" name="Synonym_Authors[]" value="">
+                    </div>
+                </div>
+            @endforelse
             <p class="help-block  col-sm-offset-2"><a href="#" id="add-syn-btn">Add synonym</a></p>
 
             <div class="form-group">
