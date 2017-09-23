@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Page;
 use App\Species;
 use Illuminate\Http\Request;
@@ -53,7 +54,13 @@ class PageController extends Controller
     public function show($title)
     {
         $page = Page::where('title',$title)->first();
-        return view('page.show', ['page'=>$page]);
+
+        if($title == "about"){
+            $images = Image::inRandomOrder()->take(4)->get();
+//            dd($images);
+        }
+
+        return view('page.show', compact('page','images'));
     }
 
     /**
