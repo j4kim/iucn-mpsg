@@ -3,6 +3,10 @@
 @section('title', 'Edition species ' . $species->name)
 
 @section('content')
+    <p>
+        <a class="btn btn-default" href="{{ route('species.show', $species->id) }}">Cancel</a>
+    </p>
+
         <form id="species-edit-form" class="form-horizontal" action="{{ route('species.update', $species->id)}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PUT') }}

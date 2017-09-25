@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MapsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(MultipleSynonymsOnSpecies::class);
+        $this->call(PageOptions::class);
     }
 }

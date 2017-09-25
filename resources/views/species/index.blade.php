@@ -8,7 +8,7 @@
     @foreach ($species as $s)
         <li>
             <a href="{{ route('species.show', $s->id) }}">
-                {{ $s->name }}
+                <i>{{ $s->name }}</i>
             </a>
         </li>
     @endforeach

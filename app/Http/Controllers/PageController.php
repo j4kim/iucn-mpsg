@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index','show', 'book']]);
+        $this->middleware('auth', ['except' => ['show', 'book']]);
     }
 
     /**
@@ -21,7 +21,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::all();
+        return view('page.index', compact('pages'));
     }
 
     /**
@@ -51,14 +52,20 @@ class PageController extends Controller
      * @param  string  $title
      * @return \Illuminate\Http\Response
      */
-    public function show($title='about')
+    public function show($titleOrId='about')
     {
-        $page = Page::where('title',$title)->first();
+        if(intval($titleOrId))
+            $page = Page::find($titleOrId);
+        else
+            $page = Page::where('title',$titleOrId)->first();
 
-        if($title == "about"){
-            $images = Image::inRandomOrder()->take(4)->get();
-            $asidePage = Page::where('title','welcome')->first();
-//            dd($images);
+        if($page->options){
+            if($page->options["images"]){
+                $images = Image::inRandomOrder()->take($page->options["images"]["number"])->get();
+            }
+            if($page->options["asidePage"]){
+                $asidePage = Page::where('title', $page->options["asidePage"])->first();
+            }
         }
 
         return view('page.show', compact('page','images','asidePage'));
@@ -84,7 +91,8 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        $page->update($request->all());
+        $page->update(['content' => $request->content,
+            'options' => json_decode($request->options)]);
         return redirect()->route('pages.show', $page->title);
     }
 

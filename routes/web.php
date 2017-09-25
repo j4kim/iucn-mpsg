@@ -30,8 +30,7 @@ Route::match(['get', 'post'], 'register', function(){
 
 /* Pages */
 
-Route::resource('pages', 'PageController', ['except' => [
-    'show'
-]]);
+Route::resource('pages', 'PageController');
+
 Route::get('/',  'PageController@show');
 Route::get('/{page}', 'PageController@show')->name('pages.show');
