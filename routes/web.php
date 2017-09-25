@@ -31,4 +31,9 @@ Route::resource('pages', 'PageController', ['except' => [
 
 Auth::routes();
 
+// empêche la création de compte
+Route::match(['get', 'post'], 'register', function(){
+    return redirect('/');
+});
+
 Route::get('/{page}', 'PageController@show')->name('pages.show');
