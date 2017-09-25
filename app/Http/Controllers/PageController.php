@@ -51,16 +51,17 @@ class PageController extends Controller
      * @param  string  $title
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($title='about')
     {
         $page = Page::where('title',$title)->first();
 
         if($title == "about"){
             $images = Image::inRandomOrder()->take(4)->get();
+            $asidePage = Page::where('title','welcome')->first();
 //            dd($images);
         }
 
-        return view('page.show', compact('page','images'));
+        return view('page.show', compact('page','images','asidePage'));
     }
 
     /**

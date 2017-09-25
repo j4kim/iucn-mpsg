@@ -20,7 +20,8 @@
             max-width: 100%;
         }
         figure a, figure a:hover{
-            color:#84dcef;
+            /*color:#84dcef;*/
+            color:white;
         }
     </style>
 @endsection
@@ -47,10 +48,18 @@
         @endforeach
     @endif
 
-    <main class="col-md-8">
-        <h1>{{ $page->title }}</h1>
-        <div>{!! $page->content !!}</div>
-    </main>
+    <div class="row">
+        @if(isset($asidePage))
+            <aside class="col-xs-12 col-sm-12 col-md-5 col-lg-4 pull-right">
+                <div>{!! $asidePage->content !!}</div>
+            </aside>
+        @endif
+
+        <main class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
+            <h1>{{ $page->title }}</h1>
+            <div>{!! $page->content !!}</div>
+        </main>
+    </div>
 
     @if(Auth::check())
     <p>
@@ -62,7 +71,7 @@
 @section('scripts')
     <script>
         $(function(){
-            var paragraphs = $('.content p');
+            var paragraphs = $('main p');
             var figures = $('.figure');
             var step = parseInt(paragraphs.length / figures.length);
             console.log(paragraphs.length, figures.length);

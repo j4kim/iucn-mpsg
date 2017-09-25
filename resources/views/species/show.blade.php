@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="row">
-        <aside class="col-md-5 col-md-push-7 col-lg-4 col-lg-push-8">
+        <aside class="col-xs-12 col-sm-12 col-md-5 col-lg-4 pull-right">
 
             <h2>Summary</h2>
             <table class="table">
@@ -125,7 +125,7 @@
             @endif
         </aside>
 
-        <main class="col-md-7 col-md-pull-5 col-lg-8 col-lg-pull-4">
+        <main class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
             {!! $species->data["Text"] !!}
         </main>
 

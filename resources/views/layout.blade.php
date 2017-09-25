@@ -34,7 +34,7 @@
                         Home
                     </a>
                 </li>
-                @foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact"] as $tab)
+                @foreach(["Species", "Islands", "Downloads", "Links", "Contact"] as $tab)
                     <li>
                         <a href="{{ url('/' . strtolower($tab)) }}"
                         {{ is_numeric(strpos(Request::path(), strtolower($tab))) ? 'class=active':'' }}
