@@ -20,7 +20,7 @@
         figure img{
             max-width: 100%;
         }
-        figure a, figure a:hover{
+        .figure a, .figure a:hover{
             /*color:#84dcef;*/
             color:white;
         }
@@ -32,19 +32,14 @@
     @if(isset($images))
         @foreach($images as $img)
             <div class="figure">
+                <a href="{{ route('species.show', $img->species->id) }}">
                 <figure>
-                    <a href="{{ imgUrl($img) }}"
-                       data-width="{{ $img->width }}"
-                       data-height="{{ $img->height }}"
-                       data-title="{{ $img["title"] }}"
-                       data-legend="{{ $img["legend"] }}"
-                    >
                         <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $img->species->name }}">
-                    </a>
                     <figcaption>
-                        <a href="{{ route('species.show', $img->species->id) }}">{{ $img->species->name }}</a>
+                        {{ $img->species->name }}
                     </figcaption>
                 </figure>
+                </a>
             </div>
         @endforeach
     @endif
