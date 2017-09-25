@@ -189,7 +189,7 @@ table ul{
     float: left;
 }
 
-.grid-item img {
+img {
     display: block;
     max-width: 100%;
 }
