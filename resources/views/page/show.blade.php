@@ -13,6 +13,7 @@
         figure{
             background-color: #333;
             width:330px;
+            max-width: 100%;
             margin: auto;
             padding:5px 5px 0 5px;
         }
