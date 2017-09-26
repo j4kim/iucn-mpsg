@@ -26,12 +26,12 @@ var photoswipeParseHash = function() {
     return params;
 };
 
-function openGallery(gallery, pid){
+function openGallery(gallery, index){
     var pswp = new PhotoSwipe(
         pswpElement,
         PhotoSwipeUI_Default,
         gallery.items,
-        $.extend({index : pid}, gallery.options)
+        $.extend({index : index}, gallery.options)
     );
     pswp.listen('afterChange', function() {
         if(pswp.currItem.legend)
@@ -104,7 +104,7 @@ function initGalleries(params){
     // Parse URL and open gallery if it contains #&pid=3&gid=1
     var hashData = photoswipeParseHash();
     if(hashData.pid && hashData.gid) {
-        openGallery(galleries[hashData.gid - 1], hashData.pid);
+        openGallery(galleries[hashData.gid - 1], hashData.pid-1);
     }
 
     return galleries;
