@@ -3,6 +3,11 @@
 @section('title', $page->title)
 
 @section('head')
+    <link rel="stylesheet" href="{{ asset('css/photoswipe/photoswipe.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/photoswipe/default-skin/default-skin.css') }}">
+    <script src="{{ asset('js/photoswipe/photoswipe.js') }}"></script>
+    <script src="{{ asset('js/photoswipe/photoswipe-ui-default.js') }}"></script>
+
     <style>
         p{
             /*text-align: justify;*/
@@ -21,8 +26,8 @@
             max-width: 100%;
         }
         .figure a, .figure a:hover{
-            /*color:#84dcef;*/
-            color:white;
+            color:#84dcef;
+            /*color:white;*/
         }
     </style>
 @endsection
@@ -32,14 +37,21 @@
     @if(isset($images))
         @foreach($images as $img)
             <div class="figure">
-                <a href="{{ route('species.show', $img->species->id) }}">
                 <figure>
+                    <a href="{{ imgUrl($img) }}"
+                       data-width="{{ $img->width }}"
+                       data-height="{{ $img->height }}"
+                       data-title="{{ $img["title"] }}"
+                       data-legend="{{ $img["legend"] }}"
+                    >
                         <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $img->species->name }}">
+                    </a>
                     <figcaption>
-                        {{ $img->species->name }}
+                        <a href="{{ route('species.show', $img->species->id) }}">
+                            <i>{{ $img->species->name }}</i>
+                        </a>
                     </figcaption>
                 </figure>
-                </a>
             </div>
         @endforeach
     @endif
@@ -62,9 +74,12 @@
         <a class="btn btn-info" href="{{ route('pages.edit', $page->id) }}">edit</a>
     </p>
     @endif
+
+    @include("gallery")
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/gallery.js') }}"></script>
     <script>
         $(function(){
             var paragraphs = $('main p');
@@ -74,6 +89,8 @@
             figures.each(function(i,e){
                 $(e).insertAfter(paragraphs[i*step]);
             });
+
+            createGallery($("figure > a"), true);
         });
     </script>
 @endsection

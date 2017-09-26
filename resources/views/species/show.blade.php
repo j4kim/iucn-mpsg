@@ -166,5 +166,6 @@
 
 
 @section('scripts')
+    <script src="{{ asset('js/gallery.js') }}"></script>
     <script src="{{ asset('js/species.show.js') }}"></script>
 @endsection
