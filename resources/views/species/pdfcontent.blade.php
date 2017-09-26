@@ -80,7 +80,7 @@
             <figcaption>
                 {{ $img["title"] }}
                 @if ($img["legend"])
-                    | <small>{{ $img["legend"] }}</small>
+                    – <small>{{ $img["legend"] }}</small>
                 @endif
             </figcaption>
         </figure>

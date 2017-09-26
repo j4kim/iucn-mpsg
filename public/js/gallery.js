@@ -39,9 +39,9 @@ function openGallery(gallery, pid){
     );
     pswp.listen('afterChange', function() {
         if(pswp.currItem.legend)
-            $(".pswp__caption__center").append(" - <small>"+ pswp.currItem.legend +"</small>");
+            $(".pswp__caption__center").append(" – <small>"+ pswp.currItem.legend +"</small>");
         if(pswp.currItem.link)
-            $(".pswp__caption__center").append(" - <a href='"+ pswp.currItem.link +"'>Open this species sheet</a>");
+            $(".pswp__caption__center").append(" – <a href='"+ pswp.currItem.link +"'>Open this species sheet</a>");
     });
 
     pswp.init();
