@@ -38,6 +38,8 @@ function openGallery(gallery, pid){
         $.extend({index : pid}, gallery.options)
     );
     pswp.listen('afterChange', function() {
+        $("head").append('<meta property="og:title" content="Image - ' + $("h1.title").text() + '" />');
+        $("head").append('<meta property="og:description" content="Coucou" />');
         if(pswp.currItem.legend)
             $(".pswp__caption__center").append(" - <small>"+ pswp.currItem.legend +"</small>");
         if(pswp.currItem.link)
