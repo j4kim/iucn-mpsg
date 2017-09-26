@@ -20,11 +20,7 @@ var photoswipeParseHash = function() {
         if(pair.length < 2) {
             continue;
         }
-        params[pair[0]] = pair[1];
-    }
-
-    if(params.gid) {
-        params.gid = parseInt(params.gid, 10);
+        params[pair[0]] = parseInt(pair[1]);
     }
 
     return params;
