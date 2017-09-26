@@ -55,6 +55,7 @@ function createItems(thumbnails){
         items.push(
             {
                 src: $(elem).attr("href"),
+                msrc: $(elem).find('img').attr('src'),
                 w: $(elem).data("width"),
                 h: $(elem).data("height"),
                 title: $(elem).data("title"),
@@ -109,4 +110,6 @@ function initGalleries(params){
     if(hashData.pid && hashData.gid) {
         openGallery(galleries[hashData.gid - 1], hashData.pid);
     }
+
+    return galleries;
 }
