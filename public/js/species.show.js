@@ -1,14 +1,9 @@
 $(function() {
 
-    createGallery($(".species-image > a"));
-    createGallery($(".species-map > a"));
-
-
-    // var msnry = new Masonry( '.image-gallery', {
-    //     // options
-    //     itemSelector: '.species-image',
-    //     columnWidth: 160
-    // });
+    initGalleries([
+        {thumbnails:".species-image > a", simple:false},
+        {thumbnails:".species-map > a", simple:true},
+    ]);
 
     // init Masonry
     var $grid = $('.grid').masonry({

@@ -107,7 +107,7 @@
                         <a href="{{ imgUrl($img) }}"
                            data-width="{{ $img->width }}"
                            data-height="{{ $img->height }}"
-                           data-title="{{ $img["title"] }}"
+                           data-title="<i>{{ $img["title"] }}</i>"
                            data-legend="{{ $img["legend"] }}"
                         >
                             <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $species->name }}">

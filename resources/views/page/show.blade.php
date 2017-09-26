@@ -41,8 +41,8 @@
                     <a href="{{ imgUrl($img) }}"
                        data-width="{{ $img->width }}"
                        data-height="{{ $img->height }}"
-                       data-title="{{ $img["title"] }}"
-                       data-legend="{{ $img["legend"] }}"
+                       data-title="<i>{{ $img->species->name }}</i>"
+                       data-link="{{ route("species.show", $img->species->id) }}"
                     >
                         <img src="{{ imgUrl($img, 's') }}" alt="{{ $img["title"] or $img->species->name }}">
                     </a>
@@ -85,12 +85,13 @@
             var paragraphs = $('main p');
             var figures = $('.figure');
             var step = parseInt(paragraphs.length / figures.length);
-            console.log(paragraphs.length, figures.length);
             figures.each(function(i,e){
                 $(e).insertAfter(paragraphs[i*step]);
             });
 
-            createGallery($("figure > a"), true);
+            initGalleries([
+                {thumbnails:"figure > a", simple:true},
+            ]);
         });
     </script>
 @endsection
