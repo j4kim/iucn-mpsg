@@ -10,6 +10,9 @@
         main img {
             margin: 20px 0;
         }
+        .bold{
+            font-weight: bold;
+        }
     </style>
 @endsection
 
@@ -22,9 +25,12 @@
             <ul>
                 @foreach ($islands as $i)
                     <li>
-                        <a href="{{ route('islands.show', $i->id) }}">
+                        <a class="list-link list-link-{{ $i->id }}" href="{{ route('islands.show', $i->id) }}">
                             {{ $i->name }}
                         </a>
+                        <div class="hidden">
+                            @include('island.specieslist', ['species' => $i->species])
+                        </div>
                     </li>
                 @endforeach
             </ul>
@@ -52,9 +58,32 @@
                     ];
                 @endphp
                 @foreach($islands as $i)
-                    <area alt="{{ $i->name }}" title="{{ $i->name }}" href="{{ route('islands.show', $i->id) }}" coords={{ $coords[$i->id - 1] }} shape="rect">
+                    <area class="map-link"
+                          alt="{{ $i->name }}"
+                          title="{{ $i->name }}"
+                          href="{{ route('islands.show', $i->id) }}"
+                          coords="{{ $coords[$i->id - 1] }}"
+                          shape="rect"
+                          data-island-id="{{ $i->id }}">
                 @endforeach
             </map>
         </main>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(function(){
+            $('a.list-link').click(function(e){
+                $(this).toggleClass('bold').next().toggleClass('hidden');
+                return false;
+            });
+            $('area.map-link').click(function(e){
+                $(".list-link").removeClass('bold').next().addClass('hidden');
+                islandId = $(this).data('island-id');
+                $('.list-link-' + islandId).addClass('bold').next().removeClass('hidden');
+                return false;
+            });
+        });
+    </script>
 @endsection

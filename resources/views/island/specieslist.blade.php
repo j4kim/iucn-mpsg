@@ -1,10 +1,12 @@
 
 <ul>
-    @foreach($species as $s)
+    @forelse($species as $s)
     <li>
         <a  href="{{ route('species.show', $s->id) }}">
             <i>{{$s->name}}</i>
         </a>
     </li>
-    @endforeach
+    @empty
+        <li>No species</li>
+    @endforelse
 </ul>
