@@ -38,9 +38,9 @@ class Species extends Model
         $newImage->title = $data['title'];
         $newImage->legend =  $data['legend'];
 
-        $imageSource = Intervention::make($file);
-        $newImage->width = $imageSource->width();
-        $newImage->height = $imageSource->height();
+        $imageResource = Intervention::make($file);
+        $newImage->width = $imageResource->width();
+        $newImage->height = $imageResource->height();
         $newImage->save();
 
         $save_path = $newImage->baseUrl();
@@ -48,9 +48,11 @@ class Species extends Model
             mkdir($save_path, 666, true);
         }
 
-        $imageSource->save($newImage->originalUrl())
+        $imageResource->save($newImage->originalUrl())
             ->widen(1170)->save($newImage->mediumUrl())
             ->widen(320)->save($newImage->smallUrl());
 
+        if($folder == "images")
+            $newImage->pasteCopyright();
     }
 }

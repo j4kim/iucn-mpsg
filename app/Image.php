@@ -60,4 +60,11 @@ class Image extends Model
         $this->height = $resource->height();
         $this->save();
     }
+
+    public function pasteCopyright(){
+        $url = public_path($this->originalUrl());
+        $image = Intervention::make($url);
+        $image->insert(public_path('images/copyright.png'), 'bottom-left');
+        $image->save();
+    }
 }
