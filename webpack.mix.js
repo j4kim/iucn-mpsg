@@ -11,15 +11,3 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/species.edit.js', 'public/js')
-    .webpackConfig({
-        module: {
-            rules: [
-                    {
-                        test: /\.(handlebars|hbs)$/,
-                        loader: "handlebars-loader"
-                    }
-                ]
-
-        }
-    });

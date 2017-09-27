@@ -92,7 +92,7 @@
                 <div class="col-sm-10">
                     <div id="images-img">
                         @foreach($species->images as $img)
-                            @include("species.image", ["url" => imgUrl($img,'s'), 'type' => 'img'])
+                            @include("species.imagehbs", ["url" => imgUrl($img,'s'), 'type' => 'img'])
                         @endforeach
                     </div>
 
@@ -108,7 +108,7 @@
                 <div class="col-sm-10">
                     <div id="images-map">
                         @foreach($species->maps as $img)
-                            @include("species.image", ["url" => imgUrl($img,'s'), 'type' => 'map'])
+                            @include("species.imagehbs", ["url" => imgUrl($img,'s'), 'type' => 'map'])
                         @endforeach
                     </div>
                     <div>
@@ -148,6 +148,7 @@
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
+        @include('species.image')
 @endsection
 
 
@@ -157,9 +158,12 @@
 @endsection
 
 @section('scripts')
-    <!-- Include the Quill library -->
+    <!-- Quill library -->
     <script src="https://cdn.quilljs.com/1.2.0/quill.min.js"></script>
-    <!-- Initialize Quill editors -->
+
+    <!-- Handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" integrity="sha256-0JaDbGZRXlzkFbV8Xi8ZhH/zZ6QQM0Y3dCkYZ7JYq34=" crossorigin="anonymous"></script>
+
     <script src="{{ asset('js/species.edit.js') }}"></script>
 @endsection
 
