@@ -150,9 +150,15 @@
 
 @endsection
 
+
+@section('head')
+    <!-- Quill -->
+    <link href="//cdn.quilljs.com/1.3.2/quill.core.css" rel="stylesheet">
+@endsection
+
 @section('scripts')
     <!-- Include the Quill library -->
-    {{--<script src="https://cdn.quilljs.com/1.2.0/quill.min.js"></script>--}}
+    <script src="https://cdn.quilljs.com/1.2.0/quill.min.js"></script>
     <!-- Initialize Quill editors -->
     <script src="{{ asset('js/species.edit.js') }}"></script>
 @endsection

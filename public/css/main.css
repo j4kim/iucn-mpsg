@@ -2,6 +2,19 @@
 LAYOUT
 */
 
+body{
+    min-height: 100vh;
+    position: relative;
+    font-family: "Open sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.content{
+    padding-bottom: 50px;
+}
+
 /* Header */
 
 header{
@@ -11,9 +24,10 @@ header{
 
 .title-logo h1{
     font-size: 16px;
-    margin: 5px 0 0 20px;
-    width: 90px;
-    font-stretch: condensed;
+    margin: 7px 0 0 20px;
+    width: 130px;
+    font-weight: lighter;
+    font-family: "Helvetica Neue", "Helvetica", helvetica, arial, sans-serif;
 }
 
 .title-logo > *{
@@ -21,7 +35,7 @@ header{
 }
 
 .title-logo{
-    width: 200px;
+    width: 240px;
     float: left;
     padding: 5px;
 }
@@ -54,14 +68,12 @@ ul.nav li{
 }
 
 .title{
-    /*font-size: 36px;*/
     z-index: 1;
     position: absolute;
-    /*font-weight: bold;*/
+    font-weight: bold;
     font-style: italic;
 
     color: white;
-    /* background-color: white; */
     padding: 5px;
     text-shadow: 2px 2px 7px rgba(0,0,0,0.3);
 }
@@ -89,15 +101,6 @@ ul.nav li{
 /*
 FOOTER
 */
-
-body{
-    min-height: 100vh;
-    position: relative;
-}
-
-.content{
-    padding-bottom: 50px;
-}
 
 footer{
     text-align: center;

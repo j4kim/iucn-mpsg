@@ -2,15 +2,6 @@
 
 @section('title', 'Edition page ' . $page->title)
 
-@section('head')
-    <style>
-        textarea{
-            font-family: monospace;
-            width: 100%;
-        }
-    </style>
-@endsection
-
 @section('content')
     <h1>Editing page {{ $page->title }}</h1>
 
@@ -47,7 +38,21 @@
 
 @endsection
 
-@section('scripts')
-    <script src="{{ asset('js/page.edit.js') }}"></script>
+@section('head')
+    <!-- Quill -->
+    <link href="//cdn.quilljs.com/1.3.2/quill.core.css" rel="stylesheet">
+
+    <style>
+        textarea{
+            font-family: monospace;
+            width: 100%;
+        }
+    </style>
 @endsection
 
+@section('scripts')
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.2.0/quill.min.js"></script>
+    <!-- Initialize Quill editors -->
+    <script src="{{ asset('js/page.edit.js') }}"></script>
+@endsection
