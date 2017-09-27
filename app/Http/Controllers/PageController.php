@@ -110,6 +110,6 @@ class PageController extends Controller
     }
 
     public function book(){
-        return view('book', ['species' => Species::all(), 'pages' => Page::all()]);
+        return view('book', ['species' => Species::orderBy("name")->get(), 'pages' => Page::all()]);
     }
 }
