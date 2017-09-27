@@ -11,14 +11,7 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-    .js('resources/assets/js/species.edit.js', 'public/js')
-    .js('resources/assets/js/page.edit.js', 'public/js')
-    .sass('resources/assets/sass/app.scss','public/css')
-    .styles([
-        'node_modules/quill/dist/quill.snow.css',
-        'public/css/app.css'
-    ], 'public/css/all.css')
+mix.js('resources/assets/js/species.edit.js', 'public/js')
     .webpackConfig({
         module: {
             rules: [

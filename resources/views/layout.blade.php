@@ -5,16 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Quill -->
-    {{--<link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">--}}
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Bootstrap Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,500,500i" rel="stylesheet">
 
     @yield('head')
 
