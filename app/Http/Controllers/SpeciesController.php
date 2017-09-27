@@ -59,8 +59,11 @@ class SpeciesController extends Controller
     public function show($id)
     {
         $species = Species::find($id);
-        $header_img = $species->images()->inRandomOrder()->first();
-        return view('species.show', compact('species', 'header_img'));
+        if($species){
+            $header_img = $species->images()->inRandomOrder()->first();
+            return view('species.show', compact('species', 'header_img'));
+        }
+        abort(404);
     }
 
     public function random(){

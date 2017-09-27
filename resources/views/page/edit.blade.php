@@ -40,7 +40,7 @@
 
 @section('head')
     <!-- Quill -->
-    <link href="//cdn.quilljs.com/1.3.2/quill.core.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.2/quill.snow.css" rel="stylesheet">
 
     <style>
         textarea{

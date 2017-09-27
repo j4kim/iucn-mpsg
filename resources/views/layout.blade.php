@@ -70,7 +70,7 @@
         @yield('content')
     </div>
     <footer>
-        IUCN's Top 50 Mediterranean Island Plants - 2017 - Joaquim Perez
+        Web design and development © <a href="j4kim.ch">j4kim.ch</a> – 2017
     </footer>
     @yield('scripts')
 </body>

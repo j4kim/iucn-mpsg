@@ -59,6 +59,8 @@ class PageController extends Controller
         else
             $page = Page::where('title',$titleOrId)->first();
 
+        if(!$page) abort(404);
+
         if($page->options){
             if($page->options["images"]){
                 $images = Image::inRandomOrder()->take($page->options["images"]["number"])->get();
