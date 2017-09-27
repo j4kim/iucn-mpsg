@@ -25,6 +25,7 @@ $(function(){
     var quillText = new Quill('#quillText', options);
     var quillAddRef = new Quill('#quillAddRef', options);
 
+
     var form = document.getElementById('species-edit-form');
     // we need to retrieve the HTML content of the editable inputs before to submit the form
     form.onsubmit = function() {
@@ -37,7 +38,6 @@ $(function(){
         Additional_References.value =  document.querySelector('#quillAddRef').children[0].innerHTML;
     };
 
-    document.querySelector('#Common_name').oninput = checkPlurality;
 
     function checkPlurality(){
         if(document.querySelector('#Common_name').value.includes(";")){
@@ -47,6 +47,7 @@ $(function(){
         }
     }
 
+    document.querySelector('#Common_name').oninput = checkPlurality;
     checkPlurality();
 
     $("#image-input").change(function(){addImageFromInput(this, "img");});
@@ -71,6 +72,20 @@ $(function(){
             $clone.insertAfter($(input)).removeAttr('id').attr("name", type+"_new_"+n).attr("id",n);
         }
     }
+
+    // replace placeholders prefilled server-side by filled image templates
+    $(".template-placeholder").each(function(i,e){
+        $(e).replaceWith(image_template({
+            url: $(e).data("image-url"),
+            type: $(e).data("image-type"),
+            img:{
+                id: $(e).data("image-id"),
+                legend: $(e).data("image-legend"),
+                title: $(e).data("image-title")
+            }
+        }));
+    });
+
 
     $(".form-horizontal").on("click", ".remove", function(){
         var id = $(this).data("id");

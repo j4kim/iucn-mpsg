@@ -92,7 +92,15 @@
                 <div class="col-sm-10">
                     <div id="images-img">
                         @foreach($species->images as $img)
-                            @include("species.imagehbs", ["url" => imgUrl($img,'s'), 'type' => 'img'])
+                            <div class="template-placeholder"
+                                 data-image-id="{{ $img->id }}"
+                                 data-image-legend="{{ $img->legend }}"
+                                 data-image-title="{{ $img->title }}"
+                                 data-image-url="{{ imgUrl($img,'s') }}"
+                                 data-image-type="img"
+                            >
+                                This need to be replaced by the image template
+                            </div>
                         @endforeach
                     </div>
 
@@ -108,7 +116,15 @@
                 <div class="col-sm-10">
                     <div id="images-map">
                         @foreach($species->maps as $img)
-                            @include("species.imagehbs", ["url" => imgUrl($img,'s'), 'type' => 'map'])
+                            <div class="template-placeholder"
+                                 data-image-id="{{ $img->id }}"
+                                 data-image-legend="{{ $img->legend }}"
+                                 data-image-title="{{ $img->title }}"
+                                 data-image-url="{{ imgUrl($img,'s') }}"
+                                 data-image-type="map"
+                            >
+                                This need to be replaced by the image template
+                            </div>
                         @endforeach
                     </div>
                     <div>
@@ -148,7 +164,7 @@
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
-        @include('species.image')
+        @include('species.image_template')
 @endsection
 
 
