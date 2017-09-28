@@ -27,9 +27,8 @@
             </div>
         </div>
 
-
         <p>
-            <a class="btn btn-default" href="{{ route('pages.show', $page->title) }}">Cancel</a>
+            <a class="btn btn-default" href="{{ route('pages.show', strtolower($page->title)) }}">Cancel</a>
         </p>
 
         <button type="submit" class="btn btn-primary">Save</button>
