@@ -33,4 +33,7 @@ Route::match(['get', 'post'], 'register', function(){
 Route::resource('pages', 'PageController');
 
 Route::get('/',  'PageController@show');
+Route::get('/home',  function(){
+    return redirect('/');
+});
 Route::get('/{page}', 'PageController@show')->name('pages.show');
