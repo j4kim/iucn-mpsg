@@ -1,0 +1,89 @@
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.background-overlay{
+    background: black;
+    opacity: 0.3;
+}
+
+header{
+    /*background-color: rgba(255,255,255,0.4) !important;*/
+    background: initial !important;
+}
+.title-logo{
+    background: white;
+}
+
+.nav a, .nav a:hover{
+    color: white;
+    /*color: black;*/
+}
+
+.nav a:hover{
+    /*background-color: black !important;*/
+    color: #0d82ad !important;
+    background-color: white !important;
+}
+
+footer{
+    background-color: rgba(0,0,0,0.5);
+}
+
+main h1{
+    display: none;
+}
+
+main{
+    color: white;
+    margin-top:40px;
+    word-wrap: break-word;
+}
+
+main h2{
+    /*font-size: 8vw !important;*/
+    font-size: 30px !important;
+    font-weight: lighter;
+}
+main h3{
+    /*font-size: 4vw !important;*/
+    font-size: 16px !important;
+}
+main img{
+    margin:30px 0;
+}
+main p{
+    font-size:0.7em;
+}
+
+@media (max-width: 992px){
+    ul.nav li{
+        background-color: rgba(255,255,255,0.15);
+        margin: 1px;
+    }
+}
+
+@media (min-width: 450px) {
+    main h2{
+        font-size: 50px !important;
+    }
+    main h3 {
+        font-size: 25px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    main h2{
+        font-size: 80px !important;
+    }
+    main h3 {
+        font-size: 35px !important;
+    }
+}
