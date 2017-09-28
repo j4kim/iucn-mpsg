@@ -3,6 +3,11 @@
 @section('title', 'List of islands')
 
 @section('head')
+    <link rel="stylesheet" href="{{ asset('css/photoswipe/photoswipe.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/photoswipe/default-skin/default-skin.css') }}">
+    <script src="{{ asset('js/photoswipe/photoswipe.js') }}"></script>
+    <script src="{{ asset('js/photoswipe/photoswipe-ui-default.js') }}"></script>
+
     <style>
         main img {
             margin: 20px 0;
@@ -32,6 +37,7 @@
             <a class="medi-map" href="{{ asset('images/Carte-iles-med-3071.jpg') }}" data-width="3071" data-height="1577">
                 <img src="{{ asset('images/Carte-iles-med-1170.jpg') }}">
             </a>
+            @include("gallery")
         </main>
 
     </div>
@@ -44,12 +50,18 @@
                 $(this).toggleClass('bold').next().toggleClass('hidden');
                 return false;
             });
+
             $('area.map-link').click(function(e){
                 $(".list-link").removeClass('bold').next().addClass('hidden');
                 islandId = $(this).data('island-id');
                 $('.list-link-' + islandId).addClass('bold').next().removeClass('hidden');
                 return false;
             });
+
+            initGalleries([
+                {thumbnails:".medi-map", simple:true},
+            ]);
         });
     </script>
+    <script src="{{ asset('js/gallery.js') }}"></script>
 @endsection
