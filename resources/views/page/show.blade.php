@@ -3,18 +3,44 @@
 @section('title', $page->title)
 
 @section('head')
-    <link rel="stylesheet" href="{{ asset('css/photoswipe/photoswipe.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/photoswipe/default-skin/default-skin.css') }}">
-    <script src="{{ asset('js/photoswipe/photoswipe.js') }}"></script>
-    <script src="{{ asset('js/photoswipe/photoswipe-ui-default.js') }}"></script>
+    @if(isset($images))
+        <link rel="stylesheet" href="{{ asset('css/photoswipe/photoswipe.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/photoswipe/default-skin/default-skin.css') }}">
+        <script src="{{ asset('js/photoswipe/photoswipe.js') }}"></script>
+        <script src="{{ asset('js/photoswipe/photoswipe-ui-default.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('css/figures.css') }}">
+    @endif
 
     @if(isset($page->options["stylesheet"]))
         <link rel="stylesheet" href="{{ asset('css') }}/{{ $page->options["stylesheet"] }}">
     @endif
 @endsection
 
-@section('content')
+@section('header')
+    @if(isset($page->options["header"]))
+        <div class="img-header">
+            <div class="container">
+                <h1 class="title">{{ $page->title }}</h1>
+                @php
+                    $headers = $page->options["header"];
+                    shuffle($headers);
+                @endphp
+                <img src="{{ $headers[0] }}">
+            </div>
+        </div>
+    @endif
 
+    @if(isset($page->options["background"]))
+        @php
+            $backgrounds = $page->options["background"];
+            shuffle($backgrounds);
+        @endphp
+        <div class="background background-image" style="background-image: url({{ $backgrounds[0] }})"></div>
+        <div class="background background-overlay"></div>
+    @endif
+@endsection
+
+@section('content')
     @if(isset($images))
         @foreach($images as $img)
             <div class="figure">
@@ -35,6 +61,7 @@
                 </figure>
             </div>
         @endforeach
+        @include("gallery")
     @endif
 
     <div class="row">
@@ -42,10 +69,16 @@
             <aside class="col-xs-12 col-sm-12 col-md-5 col-lg-4 pull-right">
                 <div>{!! $asidePage->content !!}</div>
             </aside>
+            <main class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
+        @else
+            <main class="col-md-12">
         @endif
-
-        <main class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
-            <h1>{{ $page->title }}</h1>
+            {{--S'il y a un header, le titre est dedans--}}
+            @if(!isset($page->options["header"]))
+                <h1>{{ $page->title }}</h1>
+            @else
+                <br>
+            @endif
             <div>{!! $page->content !!}</div>
         </main>
     </div>
@@ -56,7 +89,6 @@
     </p>
     @endif
 
-    @include("gallery")
 @endsection
 
 @section('scripts')
@@ -64,7 +96,7 @@
         <script src="{{ asset('js/gallery.js') }}"></script>
         <script src="{{ asset('js/figures.js') }}"></script>
     @endif
-    
+
     @if(isset($page->options["script"]))
         <script src="{{ asset('js') }}/{{ $page->options["script"] }}"></script>
     @endif
