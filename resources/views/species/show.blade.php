@@ -3,9 +3,11 @@
 @section('title', $species->name)
 
 @section('header')
-    <div class="container">
-        <h1 class="title">{{ $species->name }}</h1>
-        <img src="{{ imgUrl($header_img, 'm') }}">
+    <div class="img-header">
+        <div class="container">
+            <h1 class="title">{{ $species->name }}</h1>
+            <img src="{{ imgUrl($header_img, 'm') }}">
+        </div>
     </div>
 @endsection
 
@@ -140,8 +142,6 @@
         </div>
     @endif
 
-
-
     <a href="{{ route('species.pdf', $species->id) }}" style="font-size: 0.8em">Printable version</a>
 
     @if(Auth::check())
@@ -165,7 +165,6 @@
 
     <meta property="og:description" content="The {{ $species->name }} species sheet on the new Top 50 mediterranean island plants platform." />
 @endsection
-
 
 @section('scripts')
     <script src="{{ asset('js/gallery.js') }}"></script>

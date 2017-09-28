@@ -38,7 +38,7 @@
                         Home
                     </a>
                 </li>
-                @foreach(["Species", "Islands", "Downloads", "Links", "Contact"] as $tab)
+                @foreach(["About", "Species", "Islands", "Downloads", "Links", "Contact"] as $tab)
                     <li>
                         <a href="{{ url('/' . strtolower($tab)) }}"
                         {{ is_numeric(strpos(Request::path(), strtolower($tab))) ? 'class=active':'' }}
@@ -63,9 +63,7 @@
             </ul>
         </div>
     </header>
-    <div class="img-header">
-        @yield('header')
-    </div>
+    @yield('header')
     <div class="container content">
         @yield('content')
     </div>
