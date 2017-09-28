@@ -14,13 +14,13 @@
     <!-- Bootstrap Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    @yield('head')
+
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,500,500i" rel="stylesheet">
-
-    @yield('head')
 
 </head>
 <body>
