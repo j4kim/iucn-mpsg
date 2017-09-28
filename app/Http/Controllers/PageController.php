@@ -52,7 +52,7 @@ class PageController extends Controller
      * @param  string  $title
      * @return \Illuminate\Http\Response
      */
-    public function show($titleOrId='about')
+    public function show($titleOrId='home')
     {
         if(intval($titleOrId))
             $page = Page::find($titleOrId);
@@ -62,10 +62,10 @@ class PageController extends Controller
         if(!$page) abort(404);
 
         if($page->options){
-            if($page->options["images"]){
+            if(isset($page->options["images"])){
                 $images = Image::inRandomOrder()->take($page->options["images"]["number"])->get();
             }
-            if($page->options["asidePage"]){
+            if(isset($page->options["asidePage"])){
                 $asidePage = Page::where('title', $page->options["asidePage"])->first();
             }
         }
@@ -95,7 +95,7 @@ class PageController extends Controller
     {
         $page->update(['content' => $request->content,
             'options' => json_decode($request->options)]);
-        return redirect()->route('pages.show', $page->title);
+        return redirect()->route('pages.show', strtolower($page->title));
     }
 
     /**
