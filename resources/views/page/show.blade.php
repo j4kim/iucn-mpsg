@@ -8,28 +8,9 @@
     <script src="{{ asset('js/photoswipe/photoswipe.js') }}"></script>
     <script src="{{ asset('js/photoswipe/photoswipe-ui-default.js') }}"></script>
 
-    <style>
-        p{
-            /*text-align: justify;*/
-        }
-        .figure{
-            margin-bottom: 10px;
-        }
-        figure{
-            background-color: #333;
-            width:330px;
-            max-width: 100%;
-            margin: auto;
-            padding:5px 5px 0 5px;
-        }
-        figure img{
-            max-width: 100%;
-        }
-        .figure a, .figure a:hover{
-            color:#84dcef;
-            /*color:white;*/
-        }
-    </style>
+    @if(isset($page->options["stylesheet"]))
+        <link rel="stylesheet" href="{{ asset('css') }}/{{ $page->options["stylesheet"] }}">
+    @endif
 @endsection
 
 @section('content')
@@ -79,19 +60,12 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/gallery.js') }}"></script>
-    <script>
-        $(function(){
-            var paragraphs = $('main p');
-            var figures = $('.figure');
-            var step = parseInt(paragraphs.length / figures.length);
-            figures.each(function(i,e){
-                $(e).insertAfter(paragraphs[i*step]);
-            });
-
-            initGalleries([
-                {thumbnails:"figure > a", simple:true},
-            ]);
-        });
-    </script>
+    @if(isset($images))
+        <script src="{{ asset('js/gallery.js') }}"></script>
+        <script src="{{ asset('js/figures.js') }}"></script>
+    @endif
+    
+    @if(isset($page->options["script"]))
+        <script src="{{ asset('js') }}/{{ $page->options["script"] }}"></script>
+    @endif
 @endsection
