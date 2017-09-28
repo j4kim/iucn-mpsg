@@ -28,7 +28,7 @@
         <div class="container">
             <a class="title-logo" href="/">
                 <img src="{{ asset('images/iucn_logo.png') }}">
-                <h1>TOP 50 Mediterranean Island Plants UPDATE 2017</h1>
+                <h1>The Top 50 Mediterranean Island Plants UPDATE 2017</h1>
             </a>
             <ul class="nav">
                 <li>
@@ -68,7 +68,7 @@
         @yield('content')
     </div>
     <footer>
-        Web design and development © <a href="j4kim.ch">j4kim.ch</a> – 2017
+        Web design and development © <a href="http://j4kim.ch">j4kim.ch</a> – 2017
     </footer>
     @yield('scripts')
 </body>
