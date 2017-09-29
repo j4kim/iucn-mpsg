@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Upload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UploadController extends Controller
 {
@@ -19,7 +20,8 @@ class UploadController extends Controller
      */
     public function index()
     {
-        return redirect()->route('upload.create');
+        $uploads = Upload::all();
+        return view('upload.index', compact('uploads'));
     }
 
     /**
@@ -29,7 +31,6 @@ class UploadController extends Controller
      */
     public function create()
     {
-        return view('upload.create');
     }
 
     /**
@@ -40,7 +41,23 @@ class UploadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach ($request->file('files') as $file) {
+            $filename = $file->getClientOriginalName();
+            if(strpos($file->getMimeType(), "image") === 0){
+                $folder = "images";
+            }else{
+                $folder = "files";
+            }
+            $exploded = explode('.', $filename, 2);
+            $counter = 0;
+            while(Storage::exists("uploads/$folder/$filename")){
+                $filename = $exploded[0] . '(' . ++$counter . ').' . $exploded[1];
+            }
+            $url = $file->storeAs("uploads/$folder", $filename);
+            $size = $file->getClientSize();
+            Upload::create(compact('url','size'));
+        }
+        return redirect()->route('upload.index');
     }
 
     /**
@@ -85,6 +102,8 @@ class UploadController extends Controller
      */
     public function destroy(Upload $upload)
     {
-        //
+        unlink($upload->url);
+        $upload->delete();
+        return redirect()->route('upload.index');
     }
 }
