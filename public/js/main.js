@@ -1,9 +1,10 @@
 $(function(){
+
     function aspect(elem){
         return elem.width()/elem.height()
     }
 
-    $(window).resize(function(){
+    function resizeHeaderImage(){
         var image = $(".img-header img");
         var header = $(".img-header");
         if(aspect(header) > aspect(image)){
@@ -13,5 +14,11 @@ $(function(){
             // cas mobile
             image.css({"height": "100%", "width": "initial", "max-width": "initial"});
         }
+    }
+
+    $(window).resize(function(){
+        resizeHeaderImage();
     })
+
+    resizeHeaderImage();
 });
