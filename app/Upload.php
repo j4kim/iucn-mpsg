@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Upload extends Model
 {
-    //
+    protected $fillable = [
+        'url', 'size'
+    ];
 }
