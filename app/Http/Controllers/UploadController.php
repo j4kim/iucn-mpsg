@@ -21,7 +21,7 @@ class UploadController extends Controller
      */
     public function index()
     {
-        $uploads = Upload::all();
+        $uploads = Upload::orderBy('created_at','desc')->get();
         return view('upload.index', compact('uploads'));
     }
 
