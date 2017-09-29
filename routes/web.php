@@ -28,6 +28,10 @@ Route::match(['get', 'post'], 'register', function(){
     return redirect('/');
 });
 
+/* Upload page */
+
+Route::resource('upload', 'UploadController');
+
 /* Pages */
 
 Route::resource('pages', 'PageController');
