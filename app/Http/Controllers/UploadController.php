@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Upload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Intervention;
 
 class UploadController extends Controller
 {
@@ -54,7 +55,15 @@ class UploadController extends Controller
                 $filename = $exploded[0] . '(' . ++$counter . ').' . $exploded[1];
             }
             $url = $file->storeAs("uploads/$folder", $filename);
-            $size = $file->getClientSize();
+
+            if($folder == "images" && $request->resize){
+                Intervention::make($url)
+                    ->widen($request->width)
+                    ->save();
+            }
+
+            $size = Storage::size($url);
+
             Upload::create(compact('url','size'));
         }
         return redirect()->route('upload.index');

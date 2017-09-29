@@ -3,9 +3,9 @@
 @section('title',"Upload")
 
 @section('content')
+    <h2>Upload new files</h2>
     <form class="form-horizontal" action="{{ route('upload.store')}}"
           method="POST" enctype="multipart/form-data"
-          style="margin: 20px 0"
     >
         {{ csrf_field() }}
 
@@ -17,10 +17,17 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                <input type="checkbox" name="resize" > Resize image to <input type="number" name="width" value="1170"> px wide
+            </div>
+        </div>
 
         <button type="submit" class="col-sm-offset-2 btn btn-primary">Upload</button>
+
     </form>
 
+    <h2>Uploaded files</h2>
     <table class="table table-condensed">
         <tr>
             <th>Filename</th>
@@ -31,7 +38,7 @@
         @foreach($uploads as $upload)
                 <tr>
                     <td>
-                        <a href="{{ asset($upload->url) }}">{{ $upload->url }}
+                        <a target="_blank" href="{{ asset($upload->url) }}">{{ $upload->url }}
                         </a></td>
                     <td>{{ round($upload->size/1024,2) }} MB</td>
                     <td>{{ $upload->created_at }}</td>
