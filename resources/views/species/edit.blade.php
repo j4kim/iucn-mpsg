@@ -22,18 +22,20 @@
                 </div>
             </div>
 
-            @forelse($species->data["Summary"]["Synonyms"] as $syn)
-                <div class="form-group">
-                    <label class="control-label col-sm-2">Synonym</label>
-                    <div class=" col-sm-5">
-                        <input class="form-control" type="text" name="Synonyms[]" value="{{ $syn["Name"] or "" }}">
+            @if(isset($species->data["Summary"]["Synonyms"]))
+                @foreach($species->data["Summary"]["Synonyms"] as $syn)
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Synonym</label>
+                        <div class=" col-sm-5">
+                            <input class="form-control" type="text" name="Synonyms[]" value="{{ $syn["Name"] or "" }}">
+                        </div>
+                        <label class="control-label col-sm-1">Author</label>
+                        <div class=" col-sm-4">
+                            <input class="form-control" type="text" name="Synonym_Authors[]" value="{{$syn["Author"] or ""}}">
+                        </div>
                     </div>
-                    <label class="control-label col-sm-1">Author</label>
-                    <div class=" col-sm-4">
-                        <input class="form-control" type="text" name="Synonym_Authors[]" value="{{$syn["Author"] or ""}}">
-                    </div>
-                </div>
-            @empty
+                @endforeach
+            @else
                 <div class="form-group">
                     <label class="control-label col-sm-2">Synonym</label>
                     <div class=" col-sm-5">
@@ -44,7 +46,8 @@
                         <input class="form-control" type="text" name="Synonym_Authors[]" value="">
                     </div>
                 </div>
-            @endforelse
+            @endif
+
             <p class="help-block  col-sm-offset-2"><a href="#" id="add-syn-btn">Add synonym</a></p>
 
             <div class="form-group">

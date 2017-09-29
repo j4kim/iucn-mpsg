@@ -7,9 +7,8 @@
     <ul>
     @foreach ($species as $s)
         <li>
-            <a href="{{ route('species.show', $s->id) }}">
-                <i>{{ $s->name }}</i>
-            </a>
+            <a href="{{ route('species.show', $s->id) }}"><i>{{ $s->name }}</i></a>
+            <a href="{{ route('species.edit', $s->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
         </li>
     @endforeach
     </ul>
