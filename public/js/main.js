@@ -16,5 +16,7 @@ $(function(){
         }
     }
 
-    $(window).on("load resize", resizeHeaderImage);
+    $(window).resize(resizeHeaderImage);
+
+    setTimeout(resizeHeaderImage,0)
 });
