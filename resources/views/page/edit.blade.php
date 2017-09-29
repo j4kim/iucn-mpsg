@@ -24,7 +24,7 @@
             <input name="content" type="hidden">
             <div class="col-sm-10">
                 <textarea name="options" rows="8">{{ json_encode($page->options, JSON_PRETTY_PRINT) }}</textarea>
-                <a href="{{ route('upload.index') }}">Upload tool</a>
+                <a href="{{ route('upload.index') }}" target="_blank">Upload tool</a>
             </div>
         </div>
 
