@@ -79,7 +79,7 @@
             @else
                 <br>
             @endif
-            <div>{!! $page->content !!}</div>
+            <div class="page-content">{!! $page->content !!}</div>
         </main>
     </div>
 
