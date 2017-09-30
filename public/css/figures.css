@@ -5,7 +5,7 @@ p{
     margin-bottom: 10px;
 }
 figure{
-    background-color: #333;
+    /*background-color: #333;*/
     width:330px;
     max-width: 100%;
     margin: auto;
@@ -15,6 +15,6 @@ figure img{
     max-width: 100%;
 }
 .figure a, .figure a:hover{
-    color:#84dcef;
+    /*color:#84dcef;*/
     /*color:white;*/
 }
