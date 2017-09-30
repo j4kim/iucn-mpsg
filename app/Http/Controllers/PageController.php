@@ -63,7 +63,7 @@ class PageController extends Controller
 
         if($page->options){
             if(isset($page->options["images"])){
-                $images = Image::inRandomOrder()->take($page->options["images"]["number"])->get();
+                $images = Image::inRandomOrder()->take($page->options["images"])->get();
             }
             if(isset($page->options["asidePage"])){
                 $asidePage = Page::where('title', $page->options["asidePage"])->first();

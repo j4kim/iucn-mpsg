@@ -14,10 +14,7 @@ class PageOptions extends Seeder
     {
         $aboutPage = Page::where('title', 'About')->first();
         $aboutPage->options = [
-            "images" => [
-                "selection" => "random",
-                "number" => 4
-            ]
+            "images" => 3
         ];
         $aboutPage->save();
 
