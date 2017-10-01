@@ -250,14 +250,10 @@ SPECIES EDIT
     margin:20px 0 10px 0;
 }
 
-.ql-editor p, .ql-editor h2, .ql-editor h3{
-    margin:0 0 10px 0;
-}
-
 .image-edit{
     margin: 10px 0 10px 0;
 }
 
-.ql-editor{
-    max-height: 50vh;
+.mce-edit-area > iframe{
+    height: 50vh !important;
 }

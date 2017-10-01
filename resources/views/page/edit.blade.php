@@ -11,17 +11,15 @@
 
         <div class="form-group">
             <label class="control-label col-sm-2">Content</label>
-            <input name="content" type="hidden">
             <div class="col-sm-10">
-                <div class="editor" id="quill">
+                <textarea class="editor" name="content">
                     {!! $page->content or "" !!}
-                </div>
+                </textarea>
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2">Options</label>
-            <input name="content" type="hidden">
             <div class="col-sm-10">
                 <textarea name="options" rows="8">{{ json_encode($page->options, JSON_PRETTY_PRINT) }}</textarea>
                 <a href="{{ route('upload.index') }}" target="_blank">Upload tool</a>
@@ -39,20 +37,19 @@
 @endsection
 
 @section('head')
-    <!-- Quill -->
-    <link href="//cdn.quilljs.com/1.3.2/quill.snow.css" rel="stylesheet">
-
     <style>
         textarea{
             font-family: monospace;
-            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
         }
     </style>
 @endsection
 
 @section('scripts')
-    <!-- Include the Quill library -->
-    <script src="https://cdn.quilljs.com/1.2.0/quill.min.js"></script>
-    <!-- Initialize Quill editors -->
+    <!-- Include editor library -->
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=59apqlokg6wupr9euafvyvaek9x93jtnefaylhc80a2jg7hq"></script>
+
+    <!-- Initialize editor -->
     <script src="{{ asset('js/page.edit.js') }}"></script>
 @endsection

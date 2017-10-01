@@ -2,42 +2,19 @@ $(function(){
     var source_template = $("#image-template").html();
     var image_template = Handlebars.compile(source_template);
 
-    var options = {
-        modules: {
-            toolbar: [
-                [{ 'header': [2, 3, false] }],
-                ['bold', 'italic', 'underline', 'strike'],
-                ['link','image','video','formula'],
-                [{ 'font': [] }],
-                [{ 'align': [] }],
-                [{ 'color': [] }, { 'background': [] }],
-                ['blockquote', 'code-block'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'script': 'sub'}, { 'script': 'super' }],
-                [{ 'indent': '-1'}, { 'indent': '+1' }],
-                ['clean']
-            ]
-        },
-        theme: 'snow'
-    };
-
-    // Quill makes these two divs editable
-    var quillText = new Quill('#quillText', options);
-    var quillAddRef = new Quill('#quillAddRef', options);
-
-
-    var form = document.getElementById('species-edit-form');
-    // we need to retrieve the HTML content of the editable inputs before to submit the form
-    form.onsubmit = function() {
-        // the hidden input that will contain the html text of the species
-        var Text = document.querySelector('input[name=Text]');
-        // first child of #quillText is a special div created by Quill, we dont need it
-        Text.value =  document.querySelector('#quillText').children[0].innerHTML;
-
-        var Additional_References = document.querySelector('input[name=Additional_References]');
-        Additional_References.value =  document.querySelector('#quillAddRef').children[0].innerHTML;
-    };
-
+    // initialize editors
+    tinymce.init({
+        selector: '.editor',
+        plugins: [
+            'advlist autolink lists link image charmap preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+        ],
+        toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        toolbar2: 'preview media | forecolor backcolor emoticons | codesample',
+        image_advtab: true
+    });
 
     function checkPlurality(){
         if(document.querySelector('#Common_name').value.includes(";")){

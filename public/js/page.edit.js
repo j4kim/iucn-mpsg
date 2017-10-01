@@ -1,30 +1,14 @@
 $(function() {
-    var options = {
-        modules: {
-            toolbar: [
-                [{ 'header': [2, 3, false] }],
-                ['bold', 'italic', 'underline', 'strike'],
-                ['link','image','video','formula'],
-                [{ 'font': [] }],
-                [{ 'align': [] }],
-                [{ 'color': [] }, { 'background': [] }],
-                ['blockquote', 'code-block'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'script': 'sub'}, { 'script': 'super' }],
-                [{ 'indent': '-1'}, { 'indent': '+1' }],
-                ['clean']
-            ]
-        },
-        theme: 'snow'
-    };
-
-    // Quill makes these two divs editable
-    var quill = new Quill('#quill', options);
-
-    $("form").submit(function(e){
-        $('input[name=content]').val(
-            $('.editor').children().first().html()
-        );
+    tinymce.init({
+        selector: '.editor',
+        plugins: [
+            'advlist autolink lists link image charmap preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+        ],
+        toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        toolbar2: 'preview media | forecolor backcolor emoticons | codesample',
+        image_advtab: true
     });
-
 });

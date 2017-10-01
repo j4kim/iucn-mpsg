@@ -139,21 +139,19 @@
 
             <div class="form-group">
                 <label class="control-label col-sm-2">Text</label>
-                <input name="Text" type="hidden">
                 <div class="col-sm-10">
-                    <div class="editor" id="quillText">
+                    <textarea name="Text" class="editor" id="editorText">
                         {!! $species->data["Text"] or "" !!}
-                    </div>
+                    </textarea>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-sm-2">Additional References</label>
-                <input name="Additional_References" type="hidden">
                 <div class="col-sm-10">
-                    <div class="editor" id="quillAddRef">
+                    <textarea name="Additional_References" class="editor" id="editorAddRef">
                         {!! $species->data["Additional References"] or "" !!}
-                    </div>
+                    </textarea>
                 </div>
             </div>
 
@@ -170,15 +168,9 @@
         @include('species.image_template')
 @endsection
 
-
-@section('head')
-    <!-- Quill -->
-    <link href="//cdn.quilljs.com/1.3.2/quill.snow.css" rel="stylesheet">
-@endsection
-
 @section('scripts')
-    <!-- Quill library -->
-    <script src="https://cdn.quilljs.com/1.2.0/quill.min.js"></script>
+    <!-- Include editor library -->
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=59apqlokg6wupr9euafvyvaek9x93jtnefaylhc80a2jg7hq"></script>
 
     <!-- Handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" integrity="sha256-0JaDbGZRXlzkFbV8Xi8ZhH/zZ6QQM0Y3dCkYZ7JYq34=" crossorigin="anonymous"></script>
