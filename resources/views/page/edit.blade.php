@@ -21,7 +21,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">Options</label>
             <div class="col-sm-10">
-                <textarea name="options" rows="8">{{ json_encode($page->options, JSON_PRETTY_PRINT) }}</textarea>
+                <textarea class="options" name="options" rows="8">{{ json_encode($page->options, JSON_PRETTY_PRINT) }}</textarea>
                 <a href="{{ route('upload.index') }}" target="_blank">Upload tool</a>
             </div>
         </div>
@@ -38,7 +38,7 @@
 
 @section('head')
     <style>
-        textarea{
+        textarea.options{
             font-family: monospace;
             min-width: 100%;
             max-width: 100%;
