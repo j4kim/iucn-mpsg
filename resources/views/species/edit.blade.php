@@ -170,7 +170,8 @@
 
 @section('scripts')
     <!-- Include editor library -->
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=59apqlokg6wupr9euafvyvaek9x93jtnefaylhc80a2jg7hq"></script>
+    {{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=59apqlokg6wupr9euafvyvaek9x93jtnefaylhc80a2jg7hq"></script>--}}
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 
     <!-- Handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" integrity="sha256-0JaDbGZRXlzkFbV8Xi8ZhH/zZ6QQM0Y3dCkYZ7JYq34=" crossorigin="anonymous"></script>

@@ -48,7 +48,8 @@
 
 @section('scripts')
     <!-- Include editor library -->
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=59apqlokg6wupr9euafvyvaek9x93jtnefaylhc80a2jg7hq"></script>
+    {{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=59apqlokg6wupr9euafvyvaek9x93jtnefaylhc80a2jg7hq"></script>--}}
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 
     <!-- Initialize editor -->
     <script src="{{ asset('js/page.edit.js') }}"></script>
