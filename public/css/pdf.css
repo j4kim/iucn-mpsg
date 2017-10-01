@@ -4,6 +4,14 @@
     }
 }
 
+.dont-print-this{
+    display: none;
+}
+
+.print-this{
+    display: initial !important;
+}
+
 .explanations{
     background-color: #333;
     color: white;
@@ -94,9 +102,21 @@ main p{
 }
 
 .first-page {
-    text-align: center;
-    margin: 100px;
+    /*text-align: center;*/
+    /*margin: 100px;*/
 }
 .first-page img{
     display: initial;
+}
+
+.first-page h2{
+    font-size: 50px !important;
+}
+.first-page h3 {
+    font-size: 20px !important;
+}
+
+/* enlève les url des liens */
+a[href]:after {
+    content: none !important;
 }

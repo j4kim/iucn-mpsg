@@ -1,3 +1,3 @@
 
-<h1 class="page-header break-before">{{ $page->title }}</h1>
+<h1 class="page-header">{{ $page->title }}</h1>
 <div>{!! $page->content !!}</div>

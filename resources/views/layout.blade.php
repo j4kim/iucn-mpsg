@@ -28,7 +28,7 @@
 <body>
     <header>
         <div class="container">
-            <a class="title-logo" href="/">
+            <a class="title-logo" href="{{ config('app.url') }}">
                 <img src="{{ asset('images/iucn_logo.png') }}">
                 <h1>The Top 50 Mediterranean Island Plants UPDATE 2017</h1>
             </a>

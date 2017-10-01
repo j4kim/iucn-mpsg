@@ -110,6 +110,12 @@ class PageController extends Controller
     }
 
     public function book(){
-        return view('book', ['species' => Species::orderBy("name")->get(), 'pages' => Page::all()]);
+        $pages = [];
+        foreach(Page::all() as $page){
+            $pages[$page->title] = $page;
+        }
+        return view('book', [
+            'species' => Species::orderBy("name")->get(),
+            'pages' => $pages]);
     }
 }
