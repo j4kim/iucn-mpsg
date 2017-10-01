@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            @if(isset($species->data["Summary"]["Synonyms"]))
+            @if(count($species->data["Summary"]["Synonyms"]))
                 @foreach($species->data["Summary"]["Synonyms"] as $syn)
                     <div class="form-group">
                         <label class="control-label col-sm-2">Synonym</label>
