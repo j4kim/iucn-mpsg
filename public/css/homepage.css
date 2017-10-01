@@ -33,8 +33,12 @@ header{
     background-color: white !important;
 }
 
-footer{
-    background-color: rgba(0,0,0,0.5);
+a, a:hover {
+    color: #4fc1e0 !important;
+}
+
+a.btn, a.btn:hover {
+    color: white !important;
 }
 
 main h1{
