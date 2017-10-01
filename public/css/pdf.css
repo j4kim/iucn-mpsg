@@ -101,16 +101,13 @@ main p{
     page-break-before: always;
 }
 
-.first-page {
-    /*text-align: center;*/
-    /*margin: 100px;*/
-}
 .first-page img{
     display: initial;
 }
 
 .first-page h2{
     font-size: 50px !important;
+    font-weight:lighter;
 }
 .first-page h3 {
     font-size: 20px !important;
