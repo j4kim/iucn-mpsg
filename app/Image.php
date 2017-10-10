@@ -55,6 +55,7 @@ class Image extends Model
 
     public function writeDimensions(){
         $url = public_path($this->originalUrl());
+	        echo($url . "\n");
         $resource = Intervention::make($url);
         $this->width = $resource->width();
         $this->height = $resource->height();

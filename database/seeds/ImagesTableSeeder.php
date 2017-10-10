@@ -42,6 +42,7 @@ class ImagesTableSeeder extends Seeder
         ];
 
         foreach($images as $image){
+	        echo($image["url"] . "\n");
             $img = Image::create($image);
             $img->writeDimensions();
         }
