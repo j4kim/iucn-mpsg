@@ -70,7 +70,7 @@ class PageController extends Controller
             }
         }
 
-        return view('page.show', compact('page','images','asidePage'));
+        return view('page.show', @compact('page','images','asidePage'));
     }
 
     /**
